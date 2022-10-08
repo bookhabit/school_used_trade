@@ -1,28 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+
 Header{
+    min-height: 10vh;
     color:blue;
 }
 
 .wrapper{
     width: 100%;
-    margin-top: 20px;
-    height: 1500px;
+    min-height: 90vh;
 }
 
 .introduce{
+    text-align: center;
     background-color: aqua;
-    width: auto;
-    height: auto;
+    min-height: 40vh;
+}
+
+.sellBuyContainer{
+    display: flex;
 }
 
 .sell{
+    text-align: center;
     background-color: antiquewhite;
+    min-height: 50vh;
+    width: 50vw;
 }
 
 .buy{
+    text-align: center;
+    float: right;
     background-color: bisque;
+    min-height: 50vh;
+    width: 50vw;
 }
 
 Footer{
-
+    min-height: 20px;
     color:blue;
 }
