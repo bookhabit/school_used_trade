@@ -1,0 +1,28 @@
+Header{
+    color:blue;
+}
+
+.wrapper{
+    width: 100%;
+    margin-top: 20px;
+    height: 1500px;
+}
+
+.introduce{
+    background-color: aqua;
+    width: auto;
+    height: auto;
+}
+
+.sell{
+    background-color: antiquewhite;
+}
+
+.buy{
+    background-color: bisque;
+}
+
+Footer{
+
+    color:blue;
+}
