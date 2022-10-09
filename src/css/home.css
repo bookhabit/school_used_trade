@@ -4,10 +4,6 @@
   }
 
 
-Header{
-    min-height: 10vh;
-    color:blue;
-}
 
 .wrapper{
     width: 100%;
@@ -37,9 +33,4 @@ Header{
     background-color: bisque;
     min-height: 50vh;
     width: 50vw;
-}
-
-Footer{
-    min-height: 20px;
-    color:blue;
 }

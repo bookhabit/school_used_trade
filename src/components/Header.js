@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 const StyleHeader = styled.header`
   background-color: rgb(187, 213, 221);
+  min-height: 10vh;
+  color: blue;
 `;
 
 const Header = () => {

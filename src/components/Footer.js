@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 const StyleFooter = styled.footer`
   background-color: gray;
+  min-height: 20px;
+  color: blue;
 `;
 
 const Footer = () => {

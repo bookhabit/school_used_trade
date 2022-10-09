@@ -1,0 +1,19 @@
+.postList{
+    width: 100%;
+    min-height: 90vh;
+    border: 1px solid red;
+    display: inline-flex;
+}
+
+
+.item{
+    align-content: flex-start;
+    border: 1px solid red;
+    background-color: rgb(222, 231, 223);
+    text-align: center;
+    
+    justify-content: space-around;
+    margin: 10px;
+    width: 200px;
+    height: 200px;
+}
