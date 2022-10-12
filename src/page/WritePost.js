@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import "../css/writePost.css";
 import { useState } from "react";
 import axios from "axios";
+import Header from "./../components/Header";
 
 const WritePost = () => {
   const [title, setTitle] = useState("");
@@ -35,16 +36,19 @@ const WritePost = () => {
     // };
     const data = {
       title: title,
-      content: content,
+      body: content,
     };
     console.log(data);
 
     // const blob = new Blob([JSON.stringify(data)], { type: "application/json" });
     // formData.append("data", blob);
 
-    // axios로 post호출하면서 데이터 전송하기
-    axios
-      .post("url", data)
+    //    axios로 post호출하면서 데이터 전송하기
+    axios({
+      method: "post",
+      url: "http://localhost:4000/post",
+      data: data,
+    })
       .then((response) => {
         console.log(response);
       })
