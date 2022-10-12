@@ -56,6 +56,9 @@ const WritePost = () => {
         console.log(e);
       });
 
+    // 작성이 되었다면 알려주기 (화면에 이쁘게) 일단 alert
+    alert("게시글이 작성되었습니다.");
+
     setTitle("");
     setContent("");
   };

@@ -15,7 +15,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/PostList" element={<PostList />} />
         <Route path="/WritePost" element={<WritePost />} />
-        <Route path="/ShowPost" element={<ShowPost />} />
+        <Route path="/detail/:postID" element={<ShowPost />} />
       </Routes>
       <Footer />
     </div>

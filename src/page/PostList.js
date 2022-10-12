@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../css/postList.css";
 import axios from "axios";
-import ShowPostList from "./../components/post/ShowPostList";
+import EachPost from "../components/post/EachPost";
 
 const PostList = () => {
   const [posts, setPosts] = useState();
@@ -40,7 +40,14 @@ const PostList = () => {
       <div className="item_search">검색</div>
       <div className="category">카테고리</div>
       {/* 데이터를 가져오기 전에 시간차를 주어야함 > 비동기처리 */}
-      <ShowPostList posts={posts} />
+      {posts.map((post) => (
+        <EachPost
+          key={post.id}
+          title={post.title}
+          body={post.body}
+          postID={post.id}
+        />
+      ))}
     </div>
   );
 };

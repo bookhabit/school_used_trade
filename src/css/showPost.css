@@ -1,0 +1,23 @@
+.showPost{
+    width: 100%;
+    min-height: 90vh;
+    border: 1px solid blue;
+}
+
+.postContainer{
+    border: 1px solid red;
+    box-sizing:content-box;
+    
+}
+
+.title{
+    min-height: 10;
+}
+
+.body{
+    min-height: 60;
+}
+
+.comment{
+    min-height: 20;
+}
