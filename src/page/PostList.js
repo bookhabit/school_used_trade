@@ -41,6 +41,7 @@ const PostList = () => {
       <div className="item_search">검색</div>
       <div className="category">카테고리</div>
       {/* 데이터를 가져오기 전에 시간차를 주어야함 > 비동기처리 */}
+
       {posts.map((post) => (
         <EachPost
           key={post.id}
