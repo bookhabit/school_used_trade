@@ -38,7 +38,7 @@ const EditorPost = () => {
       .then((response) => {
         console.log(response);
         alert("게시글이 수정되었습니다.");
-        navigate("/detail/:postID");
+        navigate(`/detail/${state.id}`);
       })
       .catch((e) => {
         console.log(e);
