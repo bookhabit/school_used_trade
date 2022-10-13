@@ -6,10 +6,11 @@ import EachPost from "../components/post/EachPost";
 const PostList = () => {
   const [posts, setPosts] = useState();
   const [loading, setLoading] = useState(false);
-  // GET 요청으로 데이터 가져옴
+
+  // GET 요청으로 데이터 가져옴 GET api/posts/list
   const fetchData = async () => {
     await axios
-      .get("/posts")
+      .get("api/posts/list")
       .then((res) => {
         setPosts(res.data);
       })

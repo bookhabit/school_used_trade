@@ -5,14 +5,14 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 
 const ShowPost = () => {
-  // GET /post/api/read?id=  상세조회
   const Params = useParams();
   const postID = parseInt(Params.postID);
   console.log(typeof postID);
 
   useEffect(() => {
+    // GET api/post/read?id= 상세조회
     axios
-      .get(`/post/api/read?id=${postID}`)
+      .get(`/api/post/read?id=${postID}`)
       .then((res) => {
         console.log(res);
       })

@@ -43,10 +43,10 @@ const WritePost = () => {
     // const blob = new Blob([JSON.stringify(data)], { type: "application/json" });
     // formData.append("data", blob);
 
-    //    axios로 post호출하면서 데이터 전송하기
+    //    axios로 post호출하면서 데이터 전송하기   POST api/post/write
     axios({
       method: "post",
-      url: "http://localhost:4000/post",
+      url: "http://localhost:4000/api/post/write",
       data: data,
     })
       .then((response) => {
