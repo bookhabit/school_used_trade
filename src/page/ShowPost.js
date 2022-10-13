@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../css/showPost.css";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import EditorPost from "./EditorPost";
 
 const ShowPost = () => {
   const Params = useParams();
@@ -41,9 +42,9 @@ const ShowPost = () => {
 
   // PATCH /post/api/update?id=  수정 patch
   const onUpdate = () => {
-    axios.patch();
-
-    fetchData();
+    navigate("/EditorPost", {
+      state: { id: post.id, title: post.title, body: post.body },
+    });
   };
 
   // DELETE api/post/delete?id=  삭제 delete

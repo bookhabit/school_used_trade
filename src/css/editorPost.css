@@ -1,0 +1,28 @@
+.wrapper{
+    width: 100%;
+    min-height: 90vh;
+}
+
+.editorPost{
+    display: table;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.title{
+    display: block;
+    min-width: 60vw;
+    min-height: 10vh;
+}
+
+.content{
+    display: block;
+    min-width: 60vw;
+    min-height: 60vh;
+}
+
+.imgFile{
+    display: block;
+    border: solid rgb(158, 147, 141) 1px;
+}

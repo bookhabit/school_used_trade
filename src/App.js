@@ -6,6 +6,7 @@ import Home from "./page/Home";
 import PostList from "./page/PostList";
 import WritePost from "./page/WritePost";
 import ShowPost from "./page/ShowPost";
+import EditorPost from "./page/EditorPost";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/PostList" element={<PostList />} />
         <Route path="/WritePost" element={<WritePost />} />
+        <Route path="/EditorPost" element={<EditorPost />} />
         <Route path="/detail/:postID" element={<ShowPost />} />
       </Routes>
       <Footer />
