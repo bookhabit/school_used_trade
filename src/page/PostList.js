@@ -5,7 +5,7 @@ import EachPost from "../components/post/EachPost";
 
 const PostList = () => {
   const [posts, setPosts] = useState();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   // GET 요청으로 데이터 가져옴 GET api/posts/list
   const fetchData = async () => {
@@ -26,7 +26,7 @@ const PostList = () => {
 
   // 대기 중일 때
   if (loading) {
-    return <h2>대기 중...</h2>;
+    return <h2>로딩 중...</h2>;
   }
   // 아직 posts 값이 설정되지 않았다면
   if (!posts) {
