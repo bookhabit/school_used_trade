@@ -1,18 +1,19 @@
 * {
     margin: 0;
     padding: 0;
+    
   }
 
 
-
-.wrapper{
+.homeWrapper{
+    box-sizing:border-box;
     width: 100vw;
     min-height: 90vh;
 }
 
 .introduce{
     text-align: center;
-    background-color: aqua;
+    background-color: #fffff6;
     min-height: 40vh;
 }
 
@@ -22,7 +23,7 @@
 
 .sell{
     text-align: center;
-    background-color: antiquewhite;
+    background-color: #b2ebf2;
     min-height: 50vh;
     width: 50vw;
 }
@@ -30,7 +31,7 @@
 .buy{
     text-align: center;
     float: right;
-    background-color: bisque;
+    background-color: #d1c4e9;
     min-height: 50vh;
     width: 50vw;
 }

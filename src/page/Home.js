@@ -14,7 +14,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="wrapper">
+      <div className="homeWrapper">
         <section className="introduce">
           <h2>소개글</h2>
         </section>

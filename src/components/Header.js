@@ -9,8 +9,10 @@ import { useNavigate } from "react-router-dom";
 const StyleHeader = styled.header`
   /* 최상위 부모 */
   header {
+    box-sizing: border-box;
     background-color: beige;
     min-height: 10vh;
+    width: 100vw;
     padding: 10px;
   }
   /* 부모요소-컨테이너 */
@@ -22,7 +24,9 @@ const StyleHeader = styled.header`
   }
   /* 자식요소 */
   .logo {
+    font-size: 2em;
     flex-grow: 1;
+    padding-left: 20px;
   }
 
   .search {
