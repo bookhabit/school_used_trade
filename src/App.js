@@ -7,6 +7,8 @@ import PostList from "./page/PostList";
 import WritePost from "./page/WritePost";
 import ShowPost from "./page/ShowPost";
 import EditorPost from "./page/EditorPost";
+import SignUp from "./page/SignUp";
+import Login from "./page/Login";
 
 const App = () => {
   return (
@@ -14,6 +16,8 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/Login" element={<Login />} />
         <Route path="/PostList" element={<PostList />} />
         <Route path="/WritePost" element={<WritePost />} />
         <Route path="/EditorPost" element={<EditorPost />} />

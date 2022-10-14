@@ -15,10 +15,10 @@ const Home = () => {
   return (
     <>
       <div className="wrapper">
-        <div className="introduce">
+        <section className="introduce">
           <h2>소개글</h2>
-        </div>
-        <div className="sellBuyContainer">
+        </section>
+        <main className="sellBuyContainer">
           <div
             className="sell"
             onClick={goToSell}
@@ -29,7 +29,7 @@ const Home = () => {
           <div className="buy" onClick={goToBuy} style={{ cursor: "pointer" }}>
             구매하기
           </div>
-        </div>
+        </main>
       </div>
     </>
   );
