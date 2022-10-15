@@ -3,6 +3,9 @@ import "../css/showPost.css";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import EditorPost from "./EditorPost";
+import shoesImg from "../img/shoes.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 const ShowPost = () => {
   const Params = useParams();
@@ -63,24 +66,30 @@ const ShowPost = () => {
   };
 
   return (
-    <div className="showPost">
+    <div className="showPostWrapper">
       <section className="postContainer">
-        <div className="title">
-          <p>{post.title}</p>
-          <p>작성자</p>
+        <div className="titleBox">
+          <div className="title">{post.title}</div>
+          <div className="userName">
+            작성자
+            <FontAwesomeIcon icon={faUser} />
+          </div>
         </div>
-        <div className="body">
-          <h2>{post.body}</h2>
+        <div className="bodyContainer">
+          <img src={shoesImg} alt="shoesImg" />
+          <p className="detailBody">{post.body}</p>
         </div>
-        <div className="comment">
-          <h2>댓글</h2>
-        </div>
-        <button onClick={onUpdate} id="updateBtn">
+
+        <button onClick={onUpdate} className="updateBtn" id="updateBtn">
           수정하기
         </button>
-        <button onClick={onRemove} id="removeBtn">
+        <button onClick={onRemove} className="removeBtn" id="removeBtn">
           삭제하기
         </button>
+
+        <button className="steamedBtn">찜하기</button>
+
+        <button className="chatBtn">채팅하기</button>
       </section>
     </div>
   );
