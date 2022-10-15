@@ -10,7 +10,7 @@ const StyleHeader = styled.header`
   /* 최상위 부모 */
   header {
     box-sizing: border-box;
-    background-color: beige;
+    background-color: #b6ffff;
     min-height: 10vh;
     width: 100vw;
     padding: 10px;
@@ -26,26 +26,26 @@ const StyleHeader = styled.header`
   .logo {
     font-size: 2em;
     flex-grow: 1;
-    padding-left: 20px;
+    padding-left: 60px;
   }
 
   .search {
     display: flex;
     flex-grow: 2;
+    width: 10%;
+    border-radius: 30px;
+    padding: 10px;
   }
 
   .searchInput {
+    background-color: none;
     font-size: 2em;
-    width: 80%;
+    width: 100%;
     border: none;
-    border-radius: 20px;
-  }
-  .searchInput:focus {
-    color: black;
   }
 
   .searchInput::placeholder {
-    color: rgb(222, 200, 110);
+    color: #b1bfca;
     font-size: 1em;
     padding: 10px;
   }
@@ -53,9 +53,11 @@ const StyleHeader = styled.header`
   .searchBtn {
     cursor: pointer;
     border: none;
-    background-color: none;
+    background-color: #e5ffff;
+
     font-size: 2em;
     color: rgb(222, 200, 110);
+    padding: 10px;
   }
 
   .sign_in {
@@ -91,9 +93,10 @@ const StyleHeader = styled.header`
     }
     /* 자식요소 */
     .logo {
-      flex-grow: 1;
+      flex-grow: 0;
     }
     .search {
+      flex-grow: 2;
       margin-left: 20px;
     }
     .sign_in {
