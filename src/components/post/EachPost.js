@@ -8,14 +8,10 @@ const EachPost = ({ title, body, postID }) => {
   };
 
   return (
-    <div className="postItemContainer">
+    <div className="postItemContainer" onClick={goDetail}>
       <div className="postItem">
-        <p
-          style={{ cursor: "pointer", border: "1px solid black" }}
-          onClick={goDetail}
-        >
-          {title}
-        </p>
+        <p style={{ cursor: "pointer", border: "1px solid black" }}>{title}</p>
+        <h2>이미지</h2>
         <p>{body}</p>
       </div>
     </div>

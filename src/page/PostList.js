@@ -24,9 +24,14 @@ const PostList = () => {
     fetchData();
   }, []);
 
+  // 데이터 가져올 때 오류처리해줌
   // 대기 중일 때
   if (loading) {
-    return <h2>로딩 중...</h2>;
+    return (
+      <div className="loading">
+        <h2>로딩 중...</h2>
+      </div>
+    );
   }
   // 아직 posts 값이 설정되지 않았다면
   if (!posts) {
@@ -37,20 +42,21 @@ const PostList = () => {
   // postItem으로 하나씩 map함수로 출력하기
 
   return (
-    <div className="postList">
-      <div className="item_search">검색</div>
-      <div className="category">카테고리</div>
-      {/* 데이터를 가져오기 전에 시간차를 주어야함 > 비동기처리 */}
-
-      {posts.map((post) => (
-        <EachPost
-          key={post.id}
-          title={post.title}
-          body={post.body}
-          postID={post.id}
-        />
-      ))}
-    </div>
+    <>
+      <div className="postListWrapper">
+        <div className="postList">
+          {posts.map((post) => (
+            <EachPost
+              key={post.id}
+              title={post.title}
+              body={post.body}
+              postID={post.id}
+            />
+          ))}
+        </div>
+        <div className="pagination">1페이지</div>
+      </div>
+    </>
   );
 };
 

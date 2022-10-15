@@ -3,10 +3,13 @@ import "../css/writePost.css";
 import { useState } from "react";
 import axios from "axios";
 import Header from "../components/Header";
+import { useNavigate } from "react-router-dom";
 
 const WritePost = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+
+  const navigate = useNavigate();
   const [images, setImg] = useState([]);
 
   const onChange = useCallback((e) => {
@@ -59,8 +62,7 @@ const WritePost = () => {
     // 작성이 되었다면 알려주기 (화면에 이쁘게) 일단 alert
     alert("게시글이 작성되었습니다.");
 
-    setTitle("");
-    setContent("");
+    navigate("/PostList");
   };
 
   return (
