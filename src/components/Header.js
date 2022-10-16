@@ -14,6 +14,8 @@ const StyleHeader = styled.header`
     min-height: 10vh;
     width: 100vw;
     padding: 10px;
+    padding-left: 20%;
+    padding-right: 20%;
   }
   /* 부모요소-컨테이너 */
   .nav_bar {
@@ -100,6 +102,7 @@ const StyleHeader = styled.header`
   /* 모바일 버전 반응형 웹 */
   @media screen and (max-width: 768px) {
     /* 부모요소-컨테이너 */
+
     .nav_bar {
       font-size: 0.8em;
     }
@@ -113,6 +116,12 @@ const StyleHeader = styled.header`
     }
     .sign_in {
       display: none;
+    }
+  }
+  @media screen and (max-width: 1300px) {
+    header {
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 `;
