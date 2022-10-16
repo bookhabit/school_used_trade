@@ -37,7 +37,6 @@ const StyleHeader = styled.header`
     font-size: 2em;
     padding-left: 20px;
     width: 30%;
-    height: auto;
   }
 
   .logo > .youtubeLogo {
@@ -46,6 +45,8 @@ const StyleHeader = styled.header`
     margin-right: 5px;
   }
   .logo > .title {
+    display: flex;
+    align-items: center;
     list-style: none;
   }
 
