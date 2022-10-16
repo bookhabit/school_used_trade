@@ -8,17 +8,25 @@ const EditorPost = () => {
   const { state } = useLocation();
   console.log(state);
   const [title, setTitle] = useState(state.title);
-  const [content, setContent] = useState(state.body);
+  const [body, setBody] = useState(state.body);
+
+  const [images, setImg] = useState([]);
 
   const navigate = useNavigate();
+
+  const onLoadImage = (e) => {
+    const img = e.target.files; // 배열형태
+    console.log(img);
+    setImg(img);
+  };
 
   const onChange = useCallback((e) => {
     const { name, value } = e.target;
     if (name === "title") {
       setTitle(value);
     }
-    if (name === "content") {
-      setContent(value);
+    if (name === "body") {
+      setBody(value);
     }
   }, []);
 
@@ -27,9 +35,10 @@ const EditorPost = () => {
 
     const data = {
       title: title,
-      body: content,
+      body: body,
     };
-    console.log(data);
+    console.log("EditorPost title ", data.title);
+    console.log("EditorPost body ", data.body);
 
     // UPDATE 수정하기 PATCH api/post/update?id=
     // axios.put(url, data 객체)
@@ -49,40 +58,51 @@ const EditorPost = () => {
 
   return (
     <>
-      <div className="wrapper">
-        <form className="editorPost" onSubmit={onSubmit}>
-          <label>
-            제목
+      <div className="writePostwrapper">
+        <form className="writePost" onSubmit={onSubmit}>
+          <p className="inputTop">수정할 상품</p>
+
+          <div className="titleDiv">
             <input
               type="text"
-              className="title"
+              className="inputTitle"
               name="title"
+              required
               placeholder="제목을 입력하세요"
               onChange={onChange}
               value={title || ""}
             />
-          </label>
-          <label>
-            내용
+          </div>
+
+          <div className="bodyDiv">
             <input
               type="textarea"
-              className="content"
-              name="content"
+              rows="500"
+              cols="500"
+              required
+              className="inputBody"
+              name="body"
               placeholder="판매할 상품 설명"
               onChange={onChange}
-              value={content || ""}
+              value={body || ""}
             />
-          </label>
-          <label>
-            이미지
+          </div>
+
+          <div className="fileDiv">
             <input
               type="file"
               id="image"
               accept="image/*"
+              multiple
               className="imgFile"
+              onChange={onLoadImage}
             />
-          </label>
-          <input type="submit" value="수정" />
+          </div>
+
+          <div className="categoryAndSubmit">
+            <div className="selectCatecory">카테고리</div>
+            <input type="submit" className="updateBtn" value="수정" />
+          </div>
         </form>
       </div>
     </>

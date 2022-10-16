@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const WritePost = () => {
   const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [body, setBody] = useState("");
 
   const navigate = useNavigate();
   const [images, setImg] = useState([]);
@@ -17,8 +17,8 @@ const WritePost = () => {
     if (name === "title") {
       setTitle(value);
     }
-    if (name === "content") {
-      setContent(value);
+    if (name === "body") {
+      setBody(value);
     }
   }, []);
   // 이미지 업로드
@@ -34,12 +34,12 @@ const WritePost = () => {
     // formData.append("uploadImage", images[0]);
     // const config = {
     //   Headers: {
-    //     "content-type": "multipart/form-data",
+    //     "body-type": "multipart/form-data",
     //   },
     // };
     const data = {
       title: title,
-      body: content,
+      body: body,
     };
     console.log(data);
 
@@ -82,17 +82,17 @@ const WritePost = () => {
             />
           </div>
 
-          <div className="contentDiv">
+          <div className="bodyDiv">
             <input
               type="textarea"
               rows="500"
               cols="500"
               required
-              className="inputContent"
-              name="content"
+              className="inputBody"
+              name="body"
               placeholder="판매할 상품 설명"
               onChange={onChange}
-              value={content || ""}
+              value={body || ""}
             />
           </div>
 

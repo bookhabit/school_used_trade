@@ -19,6 +19,7 @@ const ShowPost = () => {
     await axios
       .get(`/api/post/read?id=${Params.postID}`)
       .then((res) => {
+        console.log("ShowPost res.data : ", res.data);
         setPost(res.data);
       })
       .catch((e) => {
@@ -41,7 +42,8 @@ const ShowPost = () => {
     return null;
   }
 
-  console.log(post);
+  console.log("showPost title:", post.title);
+  console.log("showPost body:", post.body);
 
   // PATCH /post/api/update?id=  수정 patch
   const onUpdate = () => {

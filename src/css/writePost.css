@@ -36,13 +36,13 @@
 }
 
 /* contentDiv */
-.contentDiv{
+.bodyDiv{
     background-color: aliceblue;
     min-height: 50vh;
     padding: 10px;
 }
 
-.inputContent{
+.inputBody{
     width: 100%;
     min-height: 50vh;
     padding: 10px;
@@ -67,26 +67,3 @@
 .SubmitBtn{
     margin-top: 5px;
 }
-/* .writePost{
-    display: table;
-    text-align: center;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.inputTitle{
-    display: block;
-    min-width: 60vw;
-    min-height: 10vh;
-}
-
-.inputContent{
-    display: block;
-    min-width: 60vw;
-    min-height: 60vh;
-}
-
-.imgFile{
-    display: block;
-    border: solid rgb(158, 147, 141) 1px;
-} */

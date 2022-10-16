@@ -49,13 +49,14 @@
     float: right;
 }
 
+/* 작성자만 보이도록
 .updateBtn{
     display: none;
 }
 
 .removeBtn{
     display: none;
-}
+} */
 
 
 /* 이미지 사진 조정 */

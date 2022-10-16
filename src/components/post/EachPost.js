@@ -6,6 +6,8 @@ const EachPost = ({ title, body, postID }) => {
   const goDetail = () => {
     navigate(`/detail/${postID}`);
   };
+  console.log("EachPost title : ", title);
+  console.log("EachPost body : ", body);
 
   return (
     <div className="postItemContainer" onClick={goDetail}>

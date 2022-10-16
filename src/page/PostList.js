@@ -38,7 +38,7 @@ const PostList = () => {
     return null;
   }
 
-  console.log(posts);
+  console.log("PostList posts : ", posts);
   // postItem으로 하나씩 map함수로 출력하기
 
   return (
