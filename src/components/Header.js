@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import imgToss from "../img/tossImg.png";
 import { useNavigate } from "react-router-dom";
+import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 
 const StyleHeader = styled.header`
   /* 최상위 부모 */
@@ -19,20 +19,41 @@ const StyleHeader = styled.header`
   .nav_bar {
     display: flex;
     padding: 10px;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
   }
+
   /* 자식요소 */
-  .logo {
+  .category {
+    cursor: pointer;
     font-size: 2em;
-    flex-grow: 1;
-    padding-left: 60px;
+    padding-left: 10px;
   }
 
+  /* logo */
+  .logo {
+    display: flex;
+    align-items: center;
+    font-size: 2em;
+    padding-left: 20px;
+    width: 30%;
+    height: auto;
+  }
+
+  .logo > .youtubeLogo {
+    cursor: pointer;
+    color: red;
+    margin-right: 5px;
+  }
+  .logo > .title {
+    list-style: none;
+  }
+
+  /* search */
   .search {
     display: flex;
-    flex-grow: 2;
-    width: 10%;
+    width: 60%;
+    max-width: 800px;
     border-radius: 30px;
     padding: 10px;
   }
@@ -60,14 +81,9 @@ const StyleHeader = styled.header`
     padding: 10px;
   }
 
+  /* sign_in */
   .sign_in {
-    flex-grow: 1;
-  }
-
-  .category {
-    cursor: pointer;
-    font-size: 2em;
-    padding-right: 5px;
+    width: 20%;
   }
 
   .sign_in > ul {
@@ -78,11 +94,6 @@ const StyleHeader = styled.header`
 
   .sign_in > ul > li {
     cursor: pointer;
-  }
-
-  #tossImg {
-    width: 60px;
-    height: 60px;
   }
 
   /* 모바일 버전 반응형 웹 */
@@ -114,14 +125,23 @@ const Header = () => {
   const goToLogin = () => {
     navigate("/Login");
   };
+  const goToHome = () => {
+    navigate("/");
+  };
   return (
     <StyleHeader>
       <header>
         <nav className="nav_bar">
+          <div className="category">
+            <FontAwesomeIcon icon={faBars} />
+          </div>
           <div className="logo">
-            <Link to="/">
-              <img src={imgToss} id="tossImg" alt="tossLogo" />
-            </Link>
+            <FontAwesomeIcon
+              className="youtubeLogo"
+              icon={faYoutube}
+              onClick={goToHome}
+            />
+            <li className="title">Youtube</li>
           </div>
 
           <div className="search">
@@ -136,10 +156,6 @@ const Header = () => {
               <li onClick={goToSingUp}>회원가입</li>
               <li onClick={goToLogin}>로그인</li>
             </ul>
-          </div>
-
-          <div className="category">
-            <FontAwesomeIcon icon={faBars} />
           </div>
         </nav>
       </header>
