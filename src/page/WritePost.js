@@ -67,41 +67,49 @@ const WritePost = () => {
 
   return (
     <>
-      <div className="wrapper">
+      <div className="writePostwrapper">
         <form className="writePost" onSubmit={onSubmit}>
-          <label>
-            제목
+          <p className="inputTop">등록할 상품</p>
+          <div className="titleDiv">
             <input
               type="text"
-              className="title"
+              className="inputTitle"
               name="title"
+              required
               placeholder="제목을 입력하세요"
               onChange={onChange}
               value={title || ""}
             />
-          </label>
-          <label>
-            내용
+          </div>
+
+          <div className="contentDiv">
             <input
               type="textarea"
-              className="content"
+              rows="500"
+              cols="500"
+              required
+              className="inputContent"
               name="content"
               placeholder="판매할 상품 설명"
               onChange={onChange}
               value={content || ""}
             />
-          </label>
-          <label>
-            이미지
+          </div>
+
+          <div className="fileDiv">
             <input
               type="file"
               id="image"
               accept="image/*"
+              multiple
               className="imgFile"
               onChange={onLoadImage}
             />
-          </label>
-          <input type="submit" value="작성" />
+          </div>
+          <div className="categoryAndSubmit">
+            <div className="selectCatecory">카테고리</div>
+            <input type="submit" className="SubmitBtn" value="작성" />
+          </div>
         </form>
       </div>
     </>

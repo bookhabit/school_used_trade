@@ -1,22 +1,86 @@
-.wrapper{
+.writePostwrapper{
     width: 100%;
     min-height: 90vh;
+    
+    padding-left: 20%;
+    padding-right: 20%;
 }
 
+/* 작성목록 감싸는 요소 */
 .writePost{
+    background-color:azure;
+    width: 100%;
+    min-height: 80vh;
+    padding: 10px;
+    margin-top: 5%;
+}
+.writePost >p{
+    background-color:aliceblue;
+    text-align: center;
+}
+
+/* titleDiv */
+.titleDiv{
+    
+    background-color: aliceblue;
+    margin-top: 5px;
+    min-height: 10vh;
+    padding: 10px;
+}
+
+.inputTitle{
+    width: 100%;
+    min-height: 10vh;
+    padding: 10px;
+    font-size: 20px;
+}
+
+/* contentDiv */
+.contentDiv{
+    background-color: aliceblue;
+    min-height: 50vh;
+    padding: 10px;
+}
+
+.inputContent{
+    width: 100%;
+    min-height: 50vh;
+    padding: 10px;
+    font-size: 15px;
+}
+
+/* 이미지파일 div */
+.fileDiv{
+    margin-top: 10px;
+}
+
+
+/* 카테고리와 제출버튼 */
+.categoryAndSubmit{
+    display: flex;
+    justify-content: space-between;
+}
+.categoryAndSubmit .selectCatecory{
+    margin-top: 5px;
+}
+
+.SubmitBtn{
+    margin-top: 5px;
+}
+/* .writePost{
     display: table;
     text-align: center;
     margin-right: auto;
     margin-left: auto;
 }
 
-.title{
+.inputTitle{
     display: block;
     min-width: 60vw;
     min-height: 10vh;
 }
 
-.content{
+.inputContent{
     display: block;
     min-width: 60vw;
     min-height: 60vh;
@@ -25,4 +89,4 @@
 .imgFile{
     display: block;
     border: solid rgb(158, 147, 141) 1px;
-}
+} */
