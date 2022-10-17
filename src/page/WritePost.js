@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useRef } from "react";
 import "../css/writePost.css";
 import { useState } from "react";
 import axios from "axios";
@@ -9,10 +9,10 @@ const WritePost = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
+  const [img, setImg] = useState(null);
   const navigate = useNavigate();
-  const [images, setImg] = useState([]);
 
-  const onChange = useCallback((e) => {
+  const onChangeInput = useCallback((e) => {
     const { name, value } = e.target;
     if (name === "title") {
       setTitle(value);
@@ -22,35 +22,32 @@ const WritePost = () => {
     }
   }, []);
   // 이미지 업로드
-  const onLoadImage = (e) => {
-    const img = e.target.files; // 배열형태
-    console.log(img);
+  const onChangeImg = (e) => {
+    const img = e.target.files[0]; // 배열형태
+
     setImg(img);
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    // const formData = new FormData();
-    // formData.append("uploadImage", images[0]);
-    // const config = {
-    //   Headers: {
-    //     "body-type": "multipart/form-data",
-    //   },
+    // const data = {
+    //   title: title,
+    //   body: body,
     // };
-    const data = {
-      title: title,
-      body: body,
-    };
-    console.log(data);
 
-    // const blob = new Blob([JSON.stringify(data)], { type: "application/json" });
-    // formData.append("data", blob);
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("body", body);
+    formData.append("img", img);
 
+    for (let value of formData.values()) {
+      console.log(value);
+    }
     //    axios로 post호출하면서 데이터 전송하기   POST api/post/write
     axios({
       method: "post",
       url: "http://localhost:4000/api/post/write",
-      data: data,
+      data: formData,
     })
       .then((response) => {
         console.log(response);
@@ -77,7 +74,7 @@ const WritePost = () => {
               name="title"
               required
               placeholder="제목을 입력하세요"
-              onChange={onChange}
+              onChange={onChangeInput}
               value={title || ""}
             />
           </div>
@@ -91,7 +88,7 @@ const WritePost = () => {
               className="inputBody"
               name="body"
               placeholder="판매할 상품 설명"
-              onChange={onChange}
+              onChange={onChangeInput}
               value={body || ""}
             />
           </div>
@@ -103,7 +100,7 @@ const WritePost = () => {
               accept="image/*"
               multiple
               className="imgFile"
-              onChange={onLoadImage}
+              onChange={onChangeImg}
             />
           </div>
           <div className="categoryAndSubmit">
