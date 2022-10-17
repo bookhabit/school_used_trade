@@ -5,6 +5,9 @@ import axios from "axios";
 import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button, Input } from "reactstrap";
+
 const WritePost = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
@@ -30,6 +33,13 @@ const WritePost = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    if (!title) {
+      document.querySelector(".inputTitle").focus();
+    }
+    if (!body) {
+      document.querySelector(".inputBody").focus();
+    }
+
     // const data = {
     //   title: title,
     //   body: body,
@@ -44,22 +54,22 @@ const WritePost = () => {
       console.log(value);
     }
     //    axios로 post호출하면서 데이터 전송하기   POST api/post/write
-    axios({
-      method: "post",
-      url: "http://localhost:4000/api/post/write",
-      data: formData,
-    })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    // axios({
+    //   method: "post",
+    //   url: "http://localhost:4000/api/post/write",
+    //   data: formData,
+    // })
+    //   .then((response) => {
+    //     console.log(response);
+    //   })
+    //   .catch((e) => {
+    //     console.log(e);
+    //   });
 
-    // 작성이 되었다면 알려주기 (화면에 이쁘게) 일단 alert
-    alert("게시글이 작성되었습니다.");
+    // // 작성이 되었다면 알려주기 (화면에 이쁘게) 일단 alert
+    // alert("게시글이 작성되었습니다.");
 
-    navigate("/PostList");
+    // navigate("/PostList");
   };
 
   return (
@@ -94,18 +104,40 @@ const WritePost = () => {
           </div>
 
           <div className="fileDiv">
-            <input
+            <Input
+              id="exampleFile"
+              name="file"
+              type="file"
+              accept="image/*"
+              multiple
+              className="imgFile"
+              onChange={onChangeImg}
+            />
+            {/* <input
               type="file"
               id="image"
               accept="image/*"
               multiple
               className="imgFile"
               onChange={onChangeImg}
-            />
+            /> */}
           </div>
           <div className="categoryAndSubmit">
             <div className="selectCatecory">카테고리</div>
-            <input type="submit" className="SubmitBtn" value="작성" />
+
+            <Button color="secondary">
+              <input
+                type="submit"
+                className="SubmitBtn"
+                onClick={onSubmit}
+                value="등록"
+                onKeyDown={(e) => {
+                  if (e.keyCode === 13) {
+                    e.preventDefault();
+                  }
+                }}
+              />
+            </Button>
           </div>
         </form>
       </div>

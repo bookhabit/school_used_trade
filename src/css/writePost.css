@@ -52,6 +52,10 @@
 /* 이미지파일 div */
 .fileDiv{
     margin-top: 10px;
+    font-size: 1.2em;
+}
+.fileDiv > input {
+    all:unset;
 }
 
 
@@ -66,4 +70,5 @@
 
 .SubmitBtn{
     margin-top: 5px;
+    all:unset;
 }
