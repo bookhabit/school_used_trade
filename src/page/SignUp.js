@@ -17,13 +17,13 @@ const SignUp = () => {
   const loginPage = () => {
     loginForm.current.style.left = "50px";
     registerForm.current.style.left = "450px";
-    toggleBtn.style.left = "0";
+    toggleBtn.current.style.left = "0";
   };
 
   const registerPage = () => {
     loginForm.current.style.left = "-400px";
     registerForm.current.style.left = "50px";
-    toggleBtn.style.left = "110";
+    toggleBtn.current.style.left = "110";
   };
 
   return (
