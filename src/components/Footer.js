@@ -18,6 +18,8 @@ const StyleFooter = styled.footer`
     padding: 10px;
     justify-content: center;
     align-items: center;
+    padding-left: 20%;
+    padding-right: 20%;
   }
 
   .information {
@@ -28,6 +30,13 @@ const StyleFooter = styled.footer`
     display: flex;
     font-size: 2em;
     padding: 20px;
+  }
+
+  @media screen and (max-width: 1300px) {
+    footer {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 `;
 
