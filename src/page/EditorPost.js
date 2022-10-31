@@ -75,10 +75,7 @@ const EditorPost = () => {
           </div>
 
           <div className="bodyDiv">
-            <input
-              type="textarea"
-              rows="500"
-              cols="500"
+            <textarea
               required
               className="inputBody"
               name="body"

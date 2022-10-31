@@ -10,9 +10,9 @@
 .writePost{
     background-color:azure;
     width: 100%;
-    min-height: 80vh;
     padding: 10px;
     margin-top: 5%;
+    margin-bottom:5%;
 }
 .writePost >p{
     background-color:aliceblue;
@@ -42,11 +42,17 @@
     padding: 10px;
 }
 
+/* textarea 직접 css 적용하지 말기 */
+textarea{
+    resize:none;
+}
+
 .inputBody{
     width: 100%;
     min-height: 50vh;
     padding: 10px;
     font-size: 15px;
+    resize: none;
 }
 
 /* 이미지파일 div */
@@ -71,4 +77,12 @@
 .SubmitBtn{
     margin-top: 5px;
     all:unset;
+}
+
+/* 미리보기 이미지 마진설정 */
+
+.thumbnailImg{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
 }
