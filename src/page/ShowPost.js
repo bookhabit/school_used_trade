@@ -28,6 +28,9 @@ const ShowPost = () => {
     setPostLoading(false);
   };
 
+  // 이미지 path 지정
+  const imagePath = "http://" + post.image.path;
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -78,7 +81,7 @@ const ShowPost = () => {
           </div>
         </div>
         <div className="bodyContainer">
-          <img src={shoesImg} alt="shoesImg" />
+          <img src={imagePath} alt="게시글 이미지" />
           <p className="detailBody">{post.body}</p>
         </div>
 

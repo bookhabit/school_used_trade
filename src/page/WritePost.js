@@ -28,14 +28,16 @@ const WritePost = () => {
 
   // 파일 접근
   const fileInputRef = useRef();
-  const handleClickFileInput = () => {
-    fileInputRef.current?.click();
-  };
-
+  // const handleClickFileInput = () => {
+  //   fileInputRef.current?.click();
+  // };
+  const formdata = new FormData();
   // 이미지 업로드 기능
   const onChangeImg = (e) => {
     const fileList = e.target.files; // 배열형태
     console.log(e.target.files[0]);
+    formdata.append("image", e.target.files[0]); // 서버에 전송할 타입
+    console.log(formdata);
     if (fileList && fileList[0]) {
       const url = URL.createObjectURL(fileList[0]);
 
@@ -46,74 +48,22 @@ const WritePost = () => {
       });
     }
   };
+  // formdata에 데이터 넣기
+  formdata.append("title", title);
+  formdata.append("body", body);
+  if (img) {
+    formdata.append("image", img.file);
+  }
+  // console.log("img.file", img.file);
+
   // 업로드된 이미지 파일 미리보기
   const showImage = useMemo(() => {
     if (!img && img == null) {
       return <h3>선택된 이미지 없음</h3>;
     }
-    return (
-      <img src={img.thumbnail} alt={img.type} onClick={handleClickFileInput} />
-    );
+    return <img src={img.thumbnail} alt={img.type} />;
   }, [img]);
-  console.log(img);
-
-  const actionImgCompress = async (fileSrc) => {
-    console.log("압축 시작");
-
-    const options = {
-      maxSizeMB: 0.2,
-      maxWidthOrHeight: 1920,
-      useWebWorker: true,
-    };
-    try {
-      // 압축 결과
-      const compressedFile = await imageCompression(fileSrc, options);
-
-      // FileReader 는 File 혹은 Blob 객체를 이용하여, 파일의 내용을 읽을 수 있게 해주는 Web API
-      const reader = new FileReader();
-      reader.readAsDataURL(compressedFile);
-      reader.onloadend = () => {
-        // 변환 완료!
-        const base64data = reader.result;
-        handlingDataForm(base64data);
-      };
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  // formdata만들기
-  const handlingDataForm = async (dataURI) => {
-    // dataURL 값이 data:image/jpeg:base64,~~~~~~~ 이므로 ','를 기점으로 잘라서 ~~~~~인 부분만 다시 인코딩
-    const byteString = atob(dataURI.split(",")[1]);
-
-    // Blob를 구성하기 위한 준비, 이 내용은 저도 잘 이해가 안가서 기술하지 않았습니다.
-    const ab = new ArrayBuffer(byteString.length);
-    const ia = new Uint8Array(ab);
-    for (let i = 0; i < byteString.length; i++) {
-      ia[i] = byteString.charCodeAt(i);
-    }
-    const blob = new Blob([ia], {
-      type: "image/jpeg",
-    });
-    const file = new File([blob], "image.jpg");
-
-    // 위 과정을 통해 만든 image폼을 FormData에 넣어줍니다.
-    // 서버에서는 이미지를 받을 때, FormData가 아니면 받지 않도록 세팅해야합니다.
-    const formData = new FormData();
-    formData.append("representative_avatar", file);
-
-    // 필요시 더 추가합니다.
-    formData.append("name", "nkh");
-    formData.append("email", "noh5524@gmail.com");
-
-    // try {
-    //   const changeAvatar = await axis.auth.changeUserAccount(formData);
-    //   alert(changeAvatar.status);
-    // } catch (error) {
-    //   alert(error.response.data.errors);
-    // }
-  };
+  // console.log(img);
 
   // 제출  - axios
   const onSubmit = (e) => {
@@ -128,29 +78,23 @@ const WritePost = () => {
     // const data = {
     //   title: title,
     //   body: body,
+    //   img: img,
     // };
-
-    // 이미지 압축함수
-    actionImgCompress(img);
-
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("body", body);
-    formData.append("img", img);
-
-    //formdata 데이터들 출력
-    for (let value of formData.values()) {
-      console.log(value);
+    // formdata 출력하기
+    let entries = formdata.entries();
+    for (const pair of entries) {
+      console.log("보낼 데이터 : ", pair[0] + ", " + pair[1]);
     }
     // request의 header부분에 아래와 같이 타입을 설정해줍니다.
     const headers = {
       "Content-Type": "multipart/form-data",
     };
+
     // axios로 post호출하면서 데이터 전송하기   POST api/post/write
     axios({
       method: "post",
-      url: "http://localhost:4000/api/post/write",
-      data: formData,
+      url: " http://localhost:4000/api/post/write",
+      data: formdata,
       headers,
     })
       .then((response) => {
@@ -205,14 +149,6 @@ const WritePost = () => {
               className="imgFile"
               onChange={onChangeImg}
             />
-            {/* <input
-              type="file"
-              id="image"
-              accept="image/*"
-              multiple
-              className="imgFile"
-              onChange={onChangeImg}
-            /> */}
           </div>
 
           <div className="categoryAndSubmit">

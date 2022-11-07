@@ -12,10 +12,12 @@ const PostList = () => {
     await axios
       .get("api/posts/list")
       .then((res) => {
+        console.log(res.data);
         setPosts(res.data);
       })
       .catch((e) => {
         console.log(e);
+        // 데이터 가져오지 못했을 때 코드작성하기
       });
     setLoading(false);
   };
@@ -51,6 +53,7 @@ const PostList = () => {
               title={post.title}
               body={post.body}
               postID={post.id}
+              image={post.image.path}
             />
           ))}
         </div>
