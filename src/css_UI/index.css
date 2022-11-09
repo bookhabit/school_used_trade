@@ -1,0 +1,564 @@
+html{
+    box-sizing: border-box;
+}
+
+.root{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* top 스타일링 */
+.topContainer{
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid rgb(238, 238, 238);
+    height: 40px;
+    background: rgb(255, 255, 255);
+}
+
+.top{
+    width: 1024px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* 버튼 기본 스타일 지움 */
+button{ 
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+
+.login{
+    font-size: 13px;
+    color: rgb(102, 102, 102);
+    padding: 0px 15px;
+    position: relative;
+    line-height: 1.4;
+    margin-right: 25px;
+}
+
+.myStore{
+    font-size: 13px;
+    color: rgb(102, 102, 102);
+    padding: 0px 15px;
+    position: relative;
+    line-height: 1.4;
+}
+
+/* header 스타일링 */
+.headerContainer{
+    position: sticky;
+    top: 0px;
+    display: flex;
+    width: 100%;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding-top: 35px;
+    background: rgb(255, 255, 255);
+    z-index: 10;
+    border-bottom: 1px solid rgb(238, 238, 238);
+    padding-bottom: 10px;
+    left: 0px;
+}
+
+/* headerMain 스타일링 */
+.headerMain{
+    display: flex;
+    flex-direction: column;
+    width: 1024px;
+}
+
+.header{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 1024px;
+    height: 40px;
+}
+
+p{
+    text-decoration: none;
+}
+
+/* a태그 기본스타일 없애기 */
+.header a{
+    text-decoration: none;
+    color: black;
+}
+
+.headerLeft{
+    margin-right: 100px;
+    width: 136px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+
+.headerCenter{
+    border: 2px solid rgb(247, 47, 51);
+    width: 460px;
+    height: 40px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.headerCenter > .search{
+    height: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center; 
+    padding: 0px 15px;
+}
+.headerCenter > .search > input{
+    border: none;
+    outline: none;
+    appearance: none;
+    padding: 0;
+}
+
+/* 포커스 있을 때도 input style 초기화 */
+.headerCenter > .search > input:active{
+    border: none;
+}
+
+.searchInput{
+    flex-grow: 1;
+}
+.searchSvg{
+    width: 20px;
+    height: 20px;
+}
+
+/* 검색어 토글버튼 만들기 - 클릭하면 색깔변경 ---------------------*/
+.aboutSearchContainer{
+    
+    position: absolute;
+    top: 48px;
+    left: 0px;
+    width: 100%;
+    border: 1px solid rgb(217, 217, 217);
+    background: rgb(255, 255, 255);
+    z-index: 10;
+    display: none;
+}
+
+.aboutSearch{
+    padding: 0px 15px;
+    /* display: none; */
+}
+
+.aboutSearch .aboutHeader{
+    display: flex;
+}
+
+.recentSearch{
+    padding: 25px 0px 10px;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    border-bottom: 2px solid rgb(247, 47, 51);
+    height: 50px;
+    box-sizing: border-box;
+    text-align: center;
+    font-weight: 600;
+    color: rgb(247, 47, 51);
+    border-top-color: rgb(247, 47, 51);
+    border-right-color: rgb(247, 47, 51);
+    border-left-color: rgb(247, 47, 51);
+    cursor: pointer;
+}
+
+.popularSearch{
+    padding: 25px 0px 10px;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    border-bottom: 2px solid rgb(217, 217, 217);
+    height: 50px;
+    box-sizing: border-box;
+    text-align: center;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+.aboutContent{
+    height: 360px;
+    overflow: hidden;
+}
+
+.aboutContent > p {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    color: rgb(136, 136, 136);
+}
+
+/* headerRight */
+.headerRight{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+}
+
+.headerRight .sellContainer {
+    margin-left: 150px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    
+    position: relative;
+}
+
+.headerRight img{
+    vertical-align: bottom;
+    margin-right: 5px;
+    width: 23px;
+    height: 26px;
+}
+
+.headerRight a:hover{
+    text-decoration: none;
+    color: black;
+}
+
+.categoryContainer{
+    margin-left: 30px;
+}
+.categoryContainer .categoryBtn{
+    cursor: pointer;
+    width: 20px;
+    height: 16px;
+}
+
+
+/* 카테고리 div display 토글 만들기 ----------- */
+.categoryAbout{
+    position: absolute;
+    margin-top: 20px;
+    right: calc(50% - 470px);
+    border: 1px solid rgb(217, 217, 217);
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    display: none;
+}
+
+
+.categoryAbout .allCategory{
+    border-bottom: 1px solid rgb(217, 217, 217);
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.categoryAbout .bodyCategory{
+    line-height: 20px;
+}
+.categoryAbout .bodyCategory p {
+    cursor: pointer;
+}
+
+.categoryAbout .bodyCategory p:hover {
+    color:red
+}
+
+
+/* headerAside 스타일링 */
+.headerAsideContainer{
+    position: absolute;
+    top: 102px;
+    right: calc(50% - 617px);
+    z-index: 20;
+}
+
+.headerAside{
+    width: 90px;
+}
+
+.chosenContainer{
+    padding: 10px;
+    width: 100%;
+    border: 1px solid rgb(204, 204, 204);
+    background: rgb(255, 255, 255);
+    margin-bottom: 6px;
+}
+
+.chosenContainer:first-child{
+    border-color: rgb(102, 102, 102);
+}
+
+.chosenContainer p {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgb(102, 102, 102);
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.chosenList{
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    color: rgb(204, 204, 204);
+    font-weight: 600;
+}
+
+.chosenList img{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.recentContainer{
+    padding: 10px;
+    width: 100%;
+    border: 1px solid rgb(204, 204, 204);
+    background: rgb(255, 255, 255);
+    margin-bottom: 6px;
+}
+
+.recentContainer p {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgb(102, 102, 102);
+    text-align: center;
+}
+.recentContainer .dotWrap{
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.recentContainer .dotWrap .dot{
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    font-size: 12px;
+    color: rgb(247, 0, 0);
+    font-weight: 600;
+    width: 38px;
+    border-bottom: 2px dotted rgb(136, 136, 136);
+}
+
+
+.recentContainer .recentList{
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    color: rgb(204, 204, 204);
+    font-size: 12px;
+}
+
+.goToTop:last-child{
+    margin-bottom: 0px;
+    padding: 0px;
+    border-color: rgb(229, 229, 229);
+}
+
+.goToTop{
+    padding: 10px;
+    width: 100%;
+    border: 1px solid rgb(204, 204, 204);
+    background: rgb(255, 255, 255);
+    margin-bottom: 6px;
+}
+
+.goToTop button{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    height: 40px;
+    width: 100%;
+    font-weight: 600;
+    font-size: 13px;
+    color: rgb(102, 102, 102);
+}
+
+/* main 스타일링 */
+
+/* mainIntrouce */
+.mainIntroduceContainer{
+    position: relative;
+    max-width: 1024px;
+    margin: 0px auto;
+    background: white;
+    padding-top: 20px;
+}
+
+.mainIntroduce{
+    position: relative;
+    display: block;
+    align-items: center;
+    box-sizing: border-box;   
+    width: 100%;
+    overflow: hidden;
+}
+
+.mainIntroduce .introduceList{
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 300px;
+    white-space: nowrap;
+}
+
+
+
+.mainIntroduce .introduceList .slick-slide{
+    position: relative;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    animation: bannermove 20s linear infinite;
+}
+.slick-slide img{
+    width: 100%;
+}
+
+/* 슬라이드 효과 */
+
+ @keyframes bannermove {
+   0% {
+       transform: translate(0, 0);
+   }
+   23%{
+    transform: translate(0, 0);
+   }
+   25%{
+    transform: translate(-100%, 0);
+   }
+   48%{
+    transform: translate(-100%, 0);
+   }
+   50% {
+       transform: translate(-200%, 0);
+   }
+
+   75%{
+    transform: translate(-200%, 0);
+   }
+   99%{
+       transform: translate(-200%, 0);
+   }
+   100%{
+        transform: translate(0%, 0);
+   }
+ }
+
+/* mainListContainer 상품리스트 스타일링 */
+.mainListContainer{
+    width: 1030px;
+    margin: auto;
+    padding: 3.5rem 0px 1.5rem;
+}
+.mainListContainer > h2{
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.mainList{
+    position: relative;
+    overflow: hidden;
+}
+
+.mainList .postList{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.mainList .postList .post{
+    width: 195px;
+    margin-right: 11px;
+    margin-bottom: 11px;
+}
+
+.mainList .postList .post .postTag{
+    border: 1px solid rgb(238, 238, 238);
+    background: rgb(255, 255, 255);
+    display: block;
+}
+.mainList .postList .post .postTag .postImgContainer{
+    position: relative;
+        width: 100%;
+        height: 194px;
+}
+
+.postImgContainer img{
+    width: 100%;
+    height: 100%;
+}
+
+.post a {
+    color: rgb(33, 33, 33);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.postTag .postDesc{
+    padding: 15px 10px;
+    height: 80px;
+}
+
+.postTag .postDesc .postTop .postTitle{
+    position: relative;
+    font-size: 14px;
+    padding-bottom: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.postTag .postDesc .postBottom{
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 20px;
+}
+.postTag .postDesc .postBottom .postPrice{
+    font-size: 16px;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.postTag .postDesc .postBottom .postDate{
+    font-size: 12px;
+    color: rgb(136, 136, 136);
+}
+
+
+/* pagination  */
+.main .mainListContainer .pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+

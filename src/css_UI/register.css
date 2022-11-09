@@ -1,0 +1,702 @@
+*{
+    box-sizing: border-box;
+    
+}
+
+.mainRegister{
+    background: rgb(255, 255, 255);
+    font-size: 16px;
+}
+
+/* registerTop 스타일링 */
+
+.registerTop{
+    height: 4em;
+    border-bottom: 1px solid rgb(244, 244, 250);
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.registerTopNav{
+    width: 1024px;
+    display: flex;
+    height: 100%;
+    font-size: 13px;
+}
+
+.registerTopNav .registerProduct{
+    height: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-right: 2rem;
+    margin-left: 0.5rem;   
+}
+
+.registerTopNav a{
+    padding: 0.5rem;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.registerTopNav .registerProduct a{
+    color: rgb(255,80,88);
+}
+
+.registerTopNav .registerProduct::after{
+    content: "";
+    width: 1px;
+    height: 14px;
+    border-right: 1px solid rgb(210, 210, 210);
+    margin-left: 2rem;
+}
+
+.registerTopNav .manageProduct{
+    height: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-right: 2rem;
+}
+
+.registerTopNav .manageProduct::after{
+    content: "";
+    width: 1px;
+    height: 14px;
+    border-right: 1px solid rgb(210, 210, 210);
+    margin-left: 2rem;
+}
+
+.registerTopNav .manageProduct a {
+    color: rgb(33, 33, 33);
+}
+
+.registerTopNav .details{
+    height: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-right: 2rem;
+}
+
+.registerTopNav .details a{
+    color: rgb(33, 33, 33);   
+}
+
+
+/* registerBody 폼요소들 스타일링 */
+
+.registerBody{
+    background: rgb(255, 255, 255);
+    font-size: 16px;
+    position: relative;
+}
+
+.registerBody main{
+    display: block;
+    width: 1024px;
+    margin: auto;
+}
+
+/* 폼요소 top 스타일링 */
+.registerFormContainer{
+    display: block;
+    margin-bottom: 6em;
+}
+
+.registerFormContainer h2{
+    height: 100px;
+    font-size: 26px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    border-bottom: 2px solid rgb(30, 29, 41);
+    font-weight: 400;
+    margin: 0px;
+}
+.registerFormContainer h2 span{
+    color: rgb(255, 80, 88);
+    font-size: 0.5em;
+    margin-left: 2em;
+
+}
+
+.registerFormContainer ul{
+    list-style: none;
+    padding-left: 0px !important;
+}
+
+/* 상품이미지등록 폼 스타일링 */
+.registerProductContainer{
+    width: 100%;
+    display: flex;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    border-bottom: 1px solid rgb(220, 219, 228);
+}
+.registerProductContainer .textContainer{
+    width: 200px;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.registerProductContainer .textContainer span{
+    color: rgb(255, 80, 88);
+}
+
+.registerProductContainer .textContainer small{
+    color: rgb(155, 153, 169);
+    margin-left: 0.25rem;
+}
+
+.registerProductContainer .bodyContainer{
+    flex: 1 1 0%;
+    position: relative;
+}
+
+.registerProductContainer .bodyContainer ul{
+    display: flex;
+    width: 856px;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+}
+
+.registerProductContainer .bodyContainer ul .registerProductFile{
+    width: 202px;
+    height: 202px;
+    position: relative;
+    border: 1px solid rgb(230, 229, 239);
+    background: rgb(250, 250, 253);
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    flex-direction: column;
+    color: rgb(155, 153, 169);
+    font-size: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+.registerProductContainer .bodyContainer ul .registerProductFile::after{
+    content: "";
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 2rem;
+    height: 2rem;
+    background-image: url(../svg/register/registerImg.svg);
+    margin-bottom: 1rem;
+}
+
+
+.registerProductContainer .bodyContainer ul .registerProductFile input{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    cursor: pointer;
+    font-size: 0px;
+}
+
+
+.bodyContainer ul .registeredProduct{
+    width: 202px;
+    height: 202px;
+    border: 1px solid rgb(230, 229, 239);
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    list-style-type: none;
+    position: relative;
+    display: flex;
+    cursor: pointer;
+}
+
+.bodyContainer ul .registeredProduct img{
+    width: 100%;
+    height: 100%;
+    border-style: none;
+}
+
+.bodyContainer ul .registeredProduct button{
+    width: 2em;
+    height: 2em;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-image: url(../svg/register/xIcon.png);
+    background-color: rgba(30, 29, 41, 0.32);
+    border-radius: 50%;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+}
+
+.bodyContainer .imgGuide{
+    margin-top: 1.5rem;
+    color: rgb(74, 164, 255);
+    line-height: 1.5;
+    font-size: 14px;
+}
+.imgGuide b {
+    font-weight: bolder;
+}
+
+/* 제목 폼 스타일링 */
+.registerProductContainer .textContainerMiddle{
+    width: 10.5em;
+    font-size: 18px;
+    padding-top: 14px;
+    font-weight: bolder;
+}
+.registerProductContainer .textContainerMiddle span{
+    color: rgb(255, 80, 88);
+}
+
+.titleWrapperDiv {
+    display: flex;
+    width: 100%;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.titleWrapperDiv .titleWrapper{
+    flex: 1 1 0%;
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.titleWrapperDiv .titleWrapper input{
+    height: 3em;
+    border: 1px solid rgb(195, 194, 204);
+    width: 100%;
+    padding: 0px 1em;
+}
+
+.titleWrapperDiv .titleWrapper a{
+    position: absolute;
+    right: 1em;
+    font-size: 1em;
+    color: rgb(155, 153, 169);
+    text-decoration: underline;
+}
+
+
+.titleWrapperDiv .inputLimit{
+    margin-left: 1.5rem;
+    font-size: 1em;
+    text-align: right;
+}
+
+/* 카테고리 폼 스타일링 */
+
+.textContainerBig{
+    width: 10.5em;
+    font-size: 18px;
+    padding-top: 8px;
+    font-weight: bolder;
+}
+.textContainerBig span{
+    color: rgb(255, 80, 88);
+}
+
+.categoryGroupContainer{
+    flex: 1 1 0%;
+    position: relative;
+}
+
+.categoryGroupContainer .categoryGroup{
+    display: flex;
+    width: 100%;
+    height: 19em;
+    overflow: hidden;
+    border: 1px solid rgb(220, 219, 228);
+}
+
+/* 메인카테고리 칸 */
+.categoryGroup .mainCategoryContainer{
+    width: 284px;
+    height: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    overflow-y: auto;
+    color: rgb(195, 194, 204);
+}
+
+.mainCategoryContainer ul{
+    width: 100%;
+    height: 100%;
+    padding: 0.5em 0px;
+    list-style: none;
+}
+
+.mainCategoryContainer ul .categoryDetail{
+    display: flex;
+    width: 100%;
+    height: 40px;
+    -webkit-box-align: center;
+    align-items: center;
+    color: rgb(24, 23, 23);
+    font-weight: bolder;
+}
+
+.mainCategoryContainer ul .categoryDetail .categoryBtn{
+    width: 100%;
+    height: 100%;
+    padding: 0px 1.5rem;
+}
+.mainCategoryContainer ul .categoryDetail .categoryBtn:hover{
+    background-color: rgb(229, 228, 232);
+}
+
+
+/* 중분류  */
+.categoryGroup .middleCategory{
+    width: 284px;
+    height: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    overflow-y: auto;
+    color: rgb(195, 194, 204);
+    border-left: 1px solid rgb(220, 219, 228);
+}
+
+/* 소분류 */
+.categoryGroup .subCategory{
+    width: 284px;
+    height: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    overflow-y: auto;
+    color: rgb(195, 194, 204);
+    border-left: 1px solid rgb(220, 219, 228);
+}
+
+/* 선택한 카테고리 */
+.selectedCategoryContainer h3{
+    font-size: 16px;
+    color: rgb(255, 80, 88);
+    font-weight: 400;
+    margin: 0px;
+}
+
+
+/* 거래지역 폼 스타일링 */
+
+
+.locationRegion .locationBtn{
+    height: 3em;
+    width: 7em;
+    text-align: center;
+    border: 1px solid rgb(195, 194, 204);
+    margin-right: 1em;
+    border-radius: 2px;
+}
+
+.bodyContainer .locationInput{
+    border: 1px solid rgb(195, 194, 204);
+    width: 100%;
+    margin-top: 1em;
+    background: rgb(244,244,250);
+    height: 3em;
+    padding: 0px 1em;
+}
+
+/* 상태 폼 스타일링 */
+.textContainerLitte{
+    width: 10.5em;
+    font-size: 18px;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+}
+.textContainerLitte span{
+    color: rgb(255, 80, 88);
+}
+
+.productState{
+    display: flex;
+}
+
+.productState input{
+    display: none;
+}
+
+.productState .usedProduct{
+    display: flex;
+    font-size: 1em;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    margin-right: 2em;
+}
+
+.productState .usedProduct::before{
+    content: "";
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    width: 2em;
+    height: 2em;
+    padding: 0.5em;
+    background-image: url(../svg/register/register_state_inputRadio.svg);
+    border-radius: 50%;
+}
+
+.productState .newProduct{
+    display: flex;
+    font-size: 1em;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    margin-right: 2em;
+}
+
+.productState .newProduct::before{
+    content: "";
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    width: 2em;
+    height: 2em;
+    padding: 0.5em;
+    background-image: url(../svg/register/register_state_inputRadio_blank.svg);
+    border-radius: 50%;
+}
+
+
+/* 교환 스타일링 */
+.exchange{
+    display: flex;
+}
+
+.exchange input{
+    display: none;
+}
+
+.exchange .exchange-impossible{
+    display: flex;
+    font-size: 1em;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    margin-right: 2em;
+}
+
+.exchange .exchange-impossible::before{
+    content: "";
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    width: 2em;
+    height: 2em;
+    padding: 0.5em;
+    background-image: url(../svg/register/register_state_inputRadio.svg);
+    border-radius: 50%;
+}
+
+.exchange .exchange-possible{
+    display: flex;
+    font-size: 1em;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    margin-right: 2em;
+}
+
+.exchange .exchange-possible::before{
+    content: "";
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    width: 2em;
+    height: 2em;
+    padding: 0.5em;
+    background-image: url(../svg/register/register_state_inputRadio_blank.svg);
+    border-radius: 50%;
+}
+
+/* 가격 폼 스타일링 */
+
+.registerInputPriceDiv .registerInputPrice{
+    height: 3em;
+    padding: 0px 1em;
+    width: 240px;
+    margin-right: 1em;
+    border: 1px solid rgb(195, 194, 204);
+}
+
+
+.includeShippingCostContainer{
+    display: flex;
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+}
+.includeShippingCostContainer .includeShippingCostDiv{
+    margin-right: 2em;
+}
+
+.includeShippingCostContainer .includeShippingCostDiv .includeShippingCost{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+}
+.includeShippingCostContainer .includeShippingCostDiv .includeShippingCost input{
+    display: none;
+}
+.includeShippingCostContainer .includeShippingCostDiv .includeShippingCost::before{
+    content: "";
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.5rem;
+    background-image: url(../svg/register/register_state_inputRadio_blank.svg);
+    border-radius: 50%;
+    margin-right: 1em;
+}
+
+/* 설명 폼 스타일링 */
+.textContainerBottom{
+    width: 10.5em;
+    font-size: 18px;
+    font-weight: bolder;
+    padding-top: 18px;
+}
+.textContainerBottom span{
+    color: rgb(255, 80, 88);
+}
+
+.productDescription{
+    padding: 1em;
+    resize: none;
+    line-height: 1.35;
+    border: 1px solid rgb(195,194,204);
+    width: 100%;
+}
+
+.DescriptionPlaceholder{
+    position: absolute;
+    top: 0px;
+    padding: 1em;
+    line-height: 16px;
+    color: rgb(155, 153, 169);
+    
+}
+.DescriptionPlaceholder span{
+    display: inline-block;
+        margin-top: 8px;
+        font-size: 12px;
+}
+
+
+/* 연관태그 폼 스타일링 */
+.TagBoxstyle_Wrapper{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 3em;
+    border: 1px solid rgb(195, 194, 204);
+    position: relative;   
+}
+.TagBoxstyle_TagInputWrapper{
+    flex: 1 1 0%;
+    height: 100%;
+}
+.TagBoxstyle_WithDeleteAll{
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 100%;
+}
+
+.TagBoxstyle_WithDeleteAll input{
+    padding: 0px 1em;
+    width: 100%;
+    height: 100% !important;
+    border: 0px !important;
+}
+
+.TagGuide{
+    padding-top: 1em;
+    line-height: 1.3;
+    color: rgb(136, 136, 136);
+}
+.TagGuide li{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0.25rem;
+}
+
+/* 수량 폼 스타일링 */
+.QuantityInputWrapper input{
+    height: 3em;
+    padding: 0px 1em;
+    border: 1px solid rgb(195, 194, 204);
+    width: 240px;
+    margin-right: 1em;
+}
+
+
+
+/* footer의 버튼 스타일링 */
+.registerBody footer{
+    width: 100%;
+    height: 5em;
+    background: rgb(250, 250, 253);
+    box-shadow: rgb(234 233 241) 0px -1px 0px 0px;
+    left: 0px;
+    bottom: 0px;
+    position: fixed;
+}
+
+.registerBtnContainer .registerBtnDiv{
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    width: 1024px;
+    margin: auto;
+}
+
+.registerBtnContainer .registerBtnDiv .registerBtn{
+    height: 3.5em;
+    width: 8em;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 5px;
+    background: rgb(255, 80, 88);
+    position: relative;
+}
+.registerBtnContainer .registerBtnDiv .registerBtn::after{
+    content: "등록하기";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 2px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}

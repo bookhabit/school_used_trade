@@ -10,7 +10,7 @@ const EditorPost = () => {
   const [title, setTitle] = useState(state.title);
   const [body, setBody] = useState(state.body);
 
-  const [images, setImg] = useState([]);
+  const [images, setImg] = useState();
 
   const navigate = useNavigate();
 
