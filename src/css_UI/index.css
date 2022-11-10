@@ -10,7 +10,7 @@ html{
     vertical-align: baseline;
 }
 /* top 스타일링 */
-.topContainer{
+/* .topContainer{
     display: flex;
     justify-content: center;
     border-bottom: 1px solid rgb(238, 238, 238);
@@ -18,11 +18,11 @@ html{
     background: rgb(255, 255, 255);
 }
 
-.top{
+.topDiv{
     width: 1024px;
     display: flex;
     justify-content: space-between;
-}
+} */
 
 
 /* 버튼 기본 스타일 지움 */

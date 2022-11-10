@@ -387,6 +387,13 @@
 }
 
 /* 선택한 카테고리 */
+.selectedCategoryContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.5em;
+}
+
 .selectedCategoryContainer h3{
     font-size: 16px;
     color: rgb(255, 80, 88);
