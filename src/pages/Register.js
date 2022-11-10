@@ -71,14 +71,8 @@ const Register = () => {
                           type="text"
                           placeholder="상품 제목을 입력해주세요."
                           className="registerInputTitle"
-                          value=""
+                          defaultValue=""
                         />
-                        <a
-                          href="https://help.bunjang.co.kr/faq/2/220"
-                          target="_blank"
-                        >
-                          거래금지 품목
-                        </a>
                       </div>
                       <div className="inputLimit">0/40</div>
                     </div>
@@ -227,15 +221,7 @@ const Register = () => {
                       <div className="middleCategory">중분류 선택</div>
                       <div className="subCategory">소분류 선택</div>
                     </div>
-                    <div
-                      className="selectedCategoryContainer"
-                      style="
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-                        margin-top: 1.5em;
-                      "
-                    >
+                    <div className="selectedCategoryContainer">
                       <h3 className="selectedCategory">
                         선택한 카테고리 : <b></b>
                       </h3>
@@ -262,10 +248,9 @@ const Register = () => {
                       </button>
                     </div>
                     <input
-                      readonly=""
                       placeholder="선호 거래 지역을 검색해주세요."
                       className="locationInput"
-                      value="지역설정안함"
+                      defaultValue="지역설정안함"
                     />
                   </div>
                 </li>
@@ -275,17 +260,17 @@ const Register = () => {
                   </div>
                   <div className="bodyContainer">
                     <div className="productState">
-                      <label for="중고상품" className="usedProduct">
+                      <label htmlFor="중고상품" className="usedProduct">
                         <input
                           id="중고상품"
                           type="radio"
-                          value="0"
-                          checked=""
+                          defaultValue="0"
+                          defaultChecked=""
                         />
                         중고상품
                       </label>
-                      <label for="새상품" className="newProduct">
-                        <input id="새상품" type="radio" value="0" />
+                      <label htmlFor="새상품" className="newProduct">
+                        <input id="새상품" type="radio" defaultValue="0" />
                         새상품
                       </label>
                     </div>
@@ -297,17 +282,17 @@ const Register = () => {
                   </div>
                   <div className="bodyContainer">
                     <div className="exchange">
-                      <label for="교환불가" className="exchange-impossible">
+                      <label htmlFor="교환불가" className="exchange-impossible">
                         <input
                           id="교환불가"
                           type="radio"
-                          value="0"
-                          checked=""
+                          defaultValue="0"
+                          defaultChecked=""
                         />
                         교환불가
                       </label>
-                      <label for="교환가능" className="exchange-possible">
-                        <input id="교환가능" type="radio" value="0" />
+                      <label htmlFor="교환가능" className="exchange-possible">
+                        <input id="교환가능" type="radio" defaultValue="0" />
                         교환가능
                       </label>
                     </div>
@@ -323,14 +308,14 @@ const Register = () => {
                         type="text"
                         placeholder="숫자만 입력해주세요."
                         className="registerInputPrice"
-                        value=""
+                        defaultValue=""
                       />
                       원
                     </div>
                     <div className="includeShippingCostContainer">
                       <div className="includeShippingCostDiv">
                         <label
-                          for="includeShippingCost"
+                          htmlFor="includeShippingCost"
                           className="includeShippingCost"
                         >
                           <input id="includeShippingCost" type="checkbox" />
@@ -370,7 +355,7 @@ const Register = () => {
                           <input
                             type="text"
                             placeholder="연관태그를 입력해주세요. (최대 5개)"
-                            value=""
+                            defaultValue=""
                           />
                         </div>
                       </div>
@@ -405,7 +390,11 @@ const Register = () => {
                   <div className="textContainerLitte">수량</div>
                   <div className="bodyContainer">
                     <div className="QuantityInputWrapper">
-                      <input type="text" className="QuantityInput" value="1" />
+                      <input
+                        type="text"
+                        className="QuantityInput"
+                        defaultValue="1"
+                      />
                       개
                     </div>
                   </div>

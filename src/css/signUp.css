@@ -4,20 +4,18 @@
   font-family: sans-serif;
 }
 .wrap {
-  min-height: 90vh;
   width: 100%;
-  background-color: #fcae8f;
+  /* background-color: #fcae8f; */
   /* background-image: url(img/background.jpg); */
   background-position: center;
   background-size: cover;
-  
 }
 .form-wrap {
   width: 380px;
   height: 480px;
   position: relative;
   margin: 6% auto;
-  background: #fff;
+  background: #fcae8f;
   padding: 5px;
   overflow: hidden;
 }

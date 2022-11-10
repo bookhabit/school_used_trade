@@ -19,12 +19,14 @@ const StyleFooter = styled.footer`
     min-height: 30px;
     width: 1024px;
     color: #62757f;
-    padding: 10px;
+    padding: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-
+  .footerContainer li {
+    list-style: none;
+  }
   .information {
     flex-grow: 1;
   }
