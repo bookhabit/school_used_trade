@@ -9,14 +9,19 @@ import listImg7 from "../../svg/list/listImg7.png";
 import listImg8 from "../../svg/list/listImg8.png";
 import listImg9 from "../../svg/list/listImg9.png";
 import listImg10 from "../../svg/list/listImg10.png";
+import { useNavigate } from "react-router";
 
 const PostList = () => {
+  const navigate = useNavigate();
+  const goDetail = () => {
+    navigate(`/detail/postID`);
+  };
   return (
     <div>
       <div className="postListContainer">
         <div className="postList">
-          <div className="post">
-            <a className="postTag" href="productDetail.html">
+          <div className="post" onClick={goDetail}>
+            <div className="postTag">
               <div className="postImgContainer">
                 <img src={listImg1} alt="상품이미지" />
               </div>
@@ -31,10 +36,10 @@ const PostList = () => {
                   </div>
                 </div>
               </div>
-            </a>
+            </div>
           </div>
-          <div className="post">
-            <a className="postTag" href="productDetail.html">
+          <div className="post" onClick={goDetail}>
+            <div className="postTag">
               <div className="postImgContainer">
                 <img src={listImg2} alt="상품이미지" />
               </div>
@@ -49,10 +54,10 @@ const PostList = () => {
                   </div>
                 </div>
               </div>
-            </a>
+            </div>
           </div>
-          <div className="post">
-            <a className="postTag" href="productDetail.html">
+          <div className="post" onClick={goDetail}>
+            <div className="postTag">
               <div className="postImgContainer">
                 <img src={listImg3} alt="상품이미지" />
               </div>
@@ -67,10 +72,10 @@ const PostList = () => {
                   </div>
                 </div>
               </div>
-            </a>
+            </div>
           </div>
-          <div className="post">
-            <a className="postTag" href="productDetail.html">
+          <div className="post" onClick={goDetail}>
+            <div className="postTag">
               <div className="postImgContainer">
                 <img src={listImg4} alt="상품이미지" />
               </div>
@@ -85,10 +90,10 @@ const PostList = () => {
                   </div>
                 </div>
               </div>
-            </a>
+            </div>
           </div>
-          <div className="post">
-            <a className="postTag" href="productDetail.html">
+          <div className="post" onClick={goDetail}>
+            <div className="postTag">
               <div className="postImgContainer">
                 <img src={listImg5} alt="상품이미지" />
               </div>
@@ -105,10 +110,10 @@ const PostList = () => {
                   </div>
                 </div>
               </div>
-            </a>
+            </div>
           </div>
-          <div className="post">
-            <a className="postTag" href="productDetail.html">
+          <div className="post" onClick={goDetail}>
+            <div className="postTag">
               <div className="postImgContainer">
                 <img src={listImg6} alt="상품이미지" />
               </div>
@@ -123,10 +128,10 @@ const PostList = () => {
                   </div>
                 </div>
               </div>
-            </a>
+            </div>
           </div>
-          <div className="post">
-            <a className="postTag" href="productDetail.html">
+          <div className="post" onClick={goDetail}>
+            <div className="postTag">
               <div className="postImgContainer">
                 <img src={listImg7} alt="상품이미지" />
               </div>
@@ -141,10 +146,10 @@ const PostList = () => {
                   </div>
                 </div>
               </div>
-            </a>
+            </div>
           </div>
-          <div className="post">
-            <a className="postTag" href="productDetail.html">
+          <div className="post" onClick={goDetail}>
+            <div className="postTag">
               <div className="postImgContainer">
                 <img src={listImg8} alt="상품이미지" />
               </div>
@@ -159,10 +164,10 @@ const PostList = () => {
                   </div>
                 </div>
               </div>
-            </a>
+            </div>
           </div>
-          <div className="post">
-            <a className="postTag" href="productDetail.html">
+          <div className="post" onClick={goDetail}>
+            <div className="postTag">
               <div className="postImgContainer">
                 <img src={listImg9} alt="상품이미지" />
               </div>
@@ -177,10 +182,10 @@ const PostList = () => {
                   </div>
                 </div>
               </div>
-            </a>
+            </div>
           </div>
-          <div className="post">
-            <a className="postTag" href="productDetail.html">
+          <div className="post" onClick={goDetail}>
+            <div className="postTag">
               <div className="postImgContainer">
                 <img src={listImg10} alt="상품이미지" />
               </div>
@@ -195,7 +200,7 @@ const PostList = () => {
                   </div>
                 </div>
               </div>
-            </a>
+            </div>
           </div>
         </div>
       </div>

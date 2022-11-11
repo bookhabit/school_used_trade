@@ -16,10 +16,10 @@ const StyleFooter = styled.footer`
   .footerContainer footer {
     box-sizing: border-box;
     background-color: rgb(230, 227, 227);
-    min-height: 30px;
+    height: 100%;
     width: 1024px;
     color: #62757f;
-    padding: 40px;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,7 +28,7 @@ const StyleFooter = styled.footer`
     list-style: none;
   }
   .information {
-    flex-grow: 1;
+    justify-content: baseline;
   }
 
   .snsLink {

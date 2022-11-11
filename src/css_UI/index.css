@@ -216,7 +216,6 @@ p{
     display: flex;
     -webkit-box-align: center;
     align-items: center;
-    
     position: relative;
 }
 
@@ -246,13 +245,12 @@ p{
 .categoryAbout{
     position: absolute;
     margin-top: 20px;
-    right: calc(50% - 470px);
+    right: calc(50% - 480px);
     border: 1px solid rgb(217, 217, 217);
     padding: 20px;
     background-color: rgb(255, 255, 255);
     display: none;
 }
-
 
 .categoryAbout .allCategory{
     border-bottom: 1px solid rgb(217, 217, 217);
@@ -265,6 +263,7 @@ p{
 }
 .categoryAbout .bodyCategory p {
     cursor: pointer;
+    padding-bottom: 10px;
 }
 
 .categoryAbout .bodyCategory p:hover {
@@ -512,9 +511,8 @@ p{
     height: 100%;
 }
 
-.post a {
+.postTag {
     color: rgb(33, 33, 33);
-    text-decoration: none;
     cursor: pointer;
 }
 

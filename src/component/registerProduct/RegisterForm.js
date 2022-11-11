@@ -1,7 +1,9 @@
 import React from "react";
 import listImg1 from "../../svg/list/listImg1.jpg";
+import { useRef } from "react";
 
 const RegisterForm = () => {
+  const DescriptionPlaceholder = useRef();
   return (
     <div className="registerBody">
       <main>
@@ -319,8 +321,14 @@ const RegisterForm = () => {
                   rows="6"
                   required
                   className="productDescription"
+                  onFocus={() => {
+                    DescriptionPlaceholder.current.style.display = "none";
+                  }}
                 ></textarea>
-                <div className="DescriptionPlaceholder">
+                <div
+                  className="DescriptionPlaceholder"
+                  ref={DescriptionPlaceholder}
+                >
                   여러 장의 상품 사진과 구입 연도, 브랜드, 사용감, 하자 유무 등
                   구매자에게 필요한 정보를 꼭 포함해 주세요.
                   <br />
