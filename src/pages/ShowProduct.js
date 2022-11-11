@@ -47,7 +47,7 @@ const ShowProduct = () => {
   }
   // PATCH /post/api/update?id=  수정 patch
   const onUpdate = () => {
-    navigate("/EditorPost", {
+    navigate("/EditorProduct", {
       state: {
         id: post.id,
         title: post.title,

@@ -2,14 +2,21 @@ import React, { useState, useCallback } from "react";
 import listImg1 from "../../svg/list/listImg1.jpg";
 import { useRef, useMemo } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const RegisterForm = () => {
-  const navigate = useNavigate();
-  // 상품등록 폼 상태관리
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
+const EditorForm = () => {
+  const { state } = useLocation();
+  console.log(state);
+
+  // 상품등록 폼 ( 수정하기 전 기존 상태)
+  const [title, setTitle] = useState(state.title);
+  const [body, setBody] = useState(state.body);
+  console.log(state.image.path);
+  const imagePath = "http://" + state.image.path;
   const [img, setImg] = useState(null);
+  console.log(img);
+
+  const navigate = useNavigate();
 
   const onChangeInput = useCallback((e) => {
     const { name, value } = e.target;
@@ -50,7 +57,12 @@ const RegisterForm = () => {
     // formdata에 데이터 넣기
     formdata.append("title", title);
     formdata.append("body", body);
-    formdata.append("image", img.file);
+    // 이미지 변경을 안했으면 그대로 , 변경했으면 변경한 이미지파일
+    if (img == null) {
+      formdata.append("image", state.image.path);
+    } else {
+      formdata.append("image", img.file);
+    }
 
     // formdata 출력하기
     let entries = formdata.entries();
@@ -65,8 +77,8 @@ const RegisterForm = () => {
 
     // axios로 post호출하면서 데이터 전송하기   POST api/post/write
     axios({
-      method: "post",
-      url: " http://localhost:4000/api/post/write",
+      method: "patch",
+      url: `http://localhost:4000/api/post/update?id=${state.id}`,
       data: formdata,
       headers,
     })
@@ -74,16 +86,14 @@ const RegisterForm = () => {
         console.log(response);
       })
       .catch((e) => {
+        alert("수정 오류");
         console.log(e);
       });
 
     // 작성이 되었다면 알려주기 (화면에 이쁘게) 일단 alert
-    alert("게시글이 작성되었습니다.");
+    alert("게시글이 수정되었습니다.");
     navigate("/");
   };
-
-  // 설명입력란 focus이벤트핸들링 :  placeholder div 없애기
-  const DescriptionPlaceholder = useRef();
 
   return (
     <div className="registerBody">
@@ -114,7 +124,7 @@ const RegisterForm = () => {
                   </li>
                   <li className="registeredProduct">
                     {/* 배열형태와 반복문,조건문으로 처리하기 */}
-                    <img src={listImg1} alt="" />
+                    <img src={imagePath} alt="" />
                     {showImage}
                     <button className="removeRegisteredProduct"></button>
                   </li>
@@ -410,24 +420,9 @@ const RegisterForm = () => {
                   required
                   name="body"
                   className="productDescription"
-                  onFocus={() => {
-                    DescriptionPlaceholder.current.style.display = "none";
-                  }}
                   onChange={onChangeInput}
                   value={body}
                 ></textarea>
-                <div
-                  className="DescriptionPlaceholder"
-                  ref={DescriptionPlaceholder}
-                >
-                  여러 장의 상품 사진과 구입 연도, 브랜드, 사용감, 하자 유무 등
-                  구매자에게 필요한 정보를 꼭 포함해 주세요.
-                  <br />
-                  <span>
-                    안전하고 건전한 거래 환경을 위해 과학기술정보통신부,
-                    한국인터넷진흥원과 번개장터(주)가 함께 합니다.
-                  </span>
-                </div>
               </div>
             </li>
             <li className="registerProductContainer">
@@ -488,11 +483,11 @@ const RegisterForm = () => {
       </main>
       <footer className="registerBtnContainer">
         <div className="registerBtnDiv">
-          <button className="registerBtn" onClick={onSubmit}></button>
+          <button className="EditorBtn" onClick={onSubmit}></button>
         </div>
       </footer>
     </div>
   );
 };
 
-export default RegisterForm;
+export default EditorForm;
