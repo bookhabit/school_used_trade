@@ -14,6 +14,7 @@ import Register from "./pages/Register";
 import ShowProduct from "./pages/ShowProduct";
 import Login from "./page/SignUp";
 import Top from "./component/Top";
+import EditorPost from "./pages/EditorProduct";
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
         <Route path="/" element={<Main />} />
         <Route path="/register" element={<Register />} />
         <Route path="/detail/:postID" element={<ShowProduct />} />
+        <Route path="/EditPost" element={<EditorPost />} />
         <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />

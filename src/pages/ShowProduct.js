@@ -1,12 +1,52 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../css_UI/productDetail.css";
 import ProductCategory from "../component/showProduct/ProductCategory";
 import ProductDetail from "../component/showProduct/ProductDetail";
 import RelatedProduct from "../component/showProduct/RelatedProduct";
 import ShareSNS from "../component/showProduct/ShareSNS";
 import ProductBottom from "../component/showProduct/ProductBottom";
+import { useParams, useNavigate } from "react-router";
+import axios from "axios";
 
 const ShowProduct = () => {
+  const Params = useParams();
+
+  const [post, setPost] = useState(null);
+  const [postLoading, setPostLoading] = useState(true);
+
+  const navigate = useNavigate();
+
+  const fetchData = async () => {
+    // GET api/post/read?id= 상세조회
+    await axios
+      .get(`/api/post/read?id=${Params.postID}`)
+      .then((res) => {
+        console.log("ShowPost res.data : ", res.data);
+        setPost(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    setPostLoading(false);
+  };
+
+  // 이미지 path 지정
+  // const imagePath = "http://" + post.image.path;
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  // 데이터 가져올 때 undefined와 loading 으로 분기처리
+  // 대기 중일 때
+  if (postLoading) {
+    return <h2>로딩 중...</h2>;
+  }
+  // 아직 posts 값이 설정되지 않았다면
+  if (!post) {
+    return null;
+  }
+
   return (
     <>
       <div className="mainProductContainer">
@@ -15,7 +55,11 @@ const ShowProduct = () => {
             {/* 카테고리 컨테이너*/}
             <ProductCategory />
             {/* 상품설명 */}
-            <ProductDetail />
+            <ProductDetail
+              title={post.title}
+              body={post.body}
+              image={post.image.path}
+            />
             {/* 연관상품  */}
             <RelatedProduct />
             {/* 공유하기 sns  */}

@@ -1,9 +1,90 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import listImg1 from "../../svg/list/listImg1.jpg";
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router";
 
 const RegisterForm = () => {
+  const navigate = useNavigate();
+  // 상품등록 폼 상태관리
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+  const [img, setImg] = useState(null);
+
+  const onChangeInput = useCallback((e) => {
+    const { name, value } = e.target;
+    if (name === "title") {
+      setTitle(value);
+    }
+    if (name === "body") {
+      setBody(value);
+    }
+  }, []);
+
+  // formdata 생성
+  const formdata = new FormData();
+  // 이미지 업로드 기능
+  const onChangeImg = (e) => {
+    const fileList = e.target.files; // 배열형태
+    // 상품이미지 폼에 보여줄 이미지 미리보기 위해 url생성
+    if (fileList && fileList[0]) {
+      const url = URL.createObjectURL(fileList[0]);
+
+      setImg({
+        file: fileList[0],
+        thumbnail: url,
+        type: fileList[0].type.slice(0, 5),
+      });
+    }
+  };
+  // 업로드된 이미지 파일 미리보기
+  const showImage = useMemo(() => {
+    if (!img && img == null) {
+      return <h3>선택된 이미지 없음</h3>;
+    }
+    return <img src={img.thumbnail} alt={img.type} />;
+  }, [img]);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    // formdata에 데이터 넣기
+    formdata.append("title", title);
+    formdata.append("body", body);
+    formdata.append("image", img.file);
+
+    // formdata 출력하기
+    let entries = formdata.entries();
+    for (const pair of entries) {
+      console.log("보낼 데이터 : ", pair[0] + ", " + pair[1]);
+    }
+
+    // request의 header부분에 아래와 같이 타입을 설정해줍니다.
+    const headers = {
+      "Content-Type": "multipart/form-data",
+    };
+
+    // axios로 post호출하면서 데이터 전송하기   POST api/post/write
+    axios({
+      method: "post",
+      url: " http://localhost:4000/api/post/write",
+      data: formdata,
+      headers,
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+
+    // 작성이 되었다면 알려주기 (화면에 이쁘게) 일단 alert
+    alert("게시글이 작성되었습니다.");
+    navigate("/PostList");
+  };
+
+  // 설명입력란 focus이벤트핸들링 :  placeholder div 없애기
   const DescriptionPlaceholder = useRef();
+
   return (
     <div className="registerBody">
       <main>
@@ -24,12 +105,17 @@ const RegisterForm = () => {
                   <li className="registerProductFile">
                     이미지등록
                     <input
+                      name="file"
                       type="file"
                       accept="image/png,image/jpg,image/jpeg"
+                      multiple
+                      onChange={onChangeImg}
                     />
                   </li>
                   <li className="registeredProduct">
+                    {/* 배열형태와 반복문,조건문으로 처리하기 */}
                     <img src={listImg1} alt="" />
+                    {showImage}
                     <button className="removeRegisteredProduct"></button>
                   </li>
                 </ul>
@@ -56,9 +142,11 @@ const RegisterForm = () => {
                   <div className="titleWrapper">
                     <input
                       type="text"
+                      name="title"
                       placeholder="상품 제목을 입력해주세요."
                       className="registerInputTitle"
-                      defaultValue=""
+                      onChange={onChangeInput}
+                      value={title}
                     />
                   </div>
                   <div className="inputLimit">0/40</div>
@@ -320,10 +408,13 @@ const RegisterForm = () => {
                 <textarea
                   rows="6"
                   required
+                  name="body"
                   className="productDescription"
                   onFocus={() => {
                     DescriptionPlaceholder.current.style.display = "none";
                   }}
+                  onChange={onChangeInput}
+                  value={body}
                 ></textarea>
                 <div
                   className="DescriptionPlaceholder"
@@ -397,7 +488,7 @@ const RegisterForm = () => {
       </main>
       <footer className="registerBtnContainer">
         <div className="registerBtnDiv">
-          <button className="registerBtn"></button>
+          <button className="registerBtn" onClick={onSubmit}></button>
         </div>
       </footer>
     </div>

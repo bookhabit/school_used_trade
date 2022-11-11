@@ -27,18 +27,18 @@ const PostList = () => {
   }, []);
 
   // 데이터 가져올 때 오류처리해줌
-  // 대기 중일 때
-  if (loading) {
+  // 대기 중일 때 +  아직 posts 값이 설정되지 않았다면
+  if (loading && !posts) {
     return (
       <div className="loading">
         <h2>로딩 중...</h2>
       </div>
     );
   }
-  // 아직 posts 값이 설정되지 않았다면
-  if (!posts) {
-    return null;
-  }
+  // //아직 posts 값이 설정되지 않았다면
+  // if (!posts) {
+  //   return null;
+  // }
 
   console.log("PostList posts : ", posts);
   // postItem으로 하나씩 map함수로 출력하기
