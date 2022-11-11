@@ -1,6 +1,8 @@
 import React from "react";
 
-const ProductInfo = () => {
+const ProductInfo = ({ body, onRemove, onUpdate }) => {
+  console.log("info:", onRemove);
+  console.log("info:", onUpdate);
   return (
     <div className="productInfoContent">
       <div className="productInfoWrapper">
@@ -8,10 +10,7 @@ const ProductInfo = () => {
           <div className="productInfoTitle">상품정보</div>
           <div className="productInfoDesc">
             <div className="productDescContent">
-              <p style={{ width: "663px" }}>
-                구매하고 나서 실착 2번 정도? 📌색상- 블루 오염,하자 없음 모자가
-                탄탄하지 않고 흐물거리는 재질.. 뭐 그런 거
-              </p>
+              <p>{body}</p>
             </div>
             <div className="productTagDiv">
               <div className="productTag">상품태그</div>
@@ -21,6 +20,10 @@ const ProductInfo = () => {
                 <a href="{() => false}">#볼캡</a>
                 <a href="{() => false}">#모자</a>
               </div>
+            </div>
+            <div className="updateAndDelete">
+              <button onClick={onUpdate}>수정하기</button>
+              <button onClick={onRemove}>삭제하기</button>
             </div>
           </div>
         </div>

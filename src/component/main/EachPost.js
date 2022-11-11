@@ -15,17 +15,6 @@ const EachPost = ({ title, created_at, postID, image }) => {
   const diffTime = Math.floor(diff / 1000 / 60 / 60); // 시간
   const diffDay = Math.floor(diff / 1000 / 60 / 60 / 24); // 일
   const diffMonth = Math.floor(diff / 1000 / 60 / 60 / 24 / 30); // 월
-  let postDate = 0;
-  if (diffTime < 24) {
-    // 시간
-    postDate = diffTime;
-  } else if (diffTime > 24) {
-    // 일
-    postDate = diffDay;
-  } else if (diffDay > 30) {
-    postDate = diffMonth;
-  }
-  console.log(postDate);
 
   return (
     <div className="post" onClick={goDetail}>

@@ -3,14 +3,15 @@ import capImg from "../../svg/productDetail/capImg.jpg";
 import wishIconImg from "../../svg/productDetail/wishIcon.svg";
 import talkBtnImg from "../../svg/productDetail/talkBtn.png";
 
-const ProductDetail = () => {
+const ProductDetail = ({ title, image }) => {
+  const imagePath = "http://" + image;
   return (
     <div className="showProductContainer">
       <div className="showProduct">
         <div className="productImgWrapper">
           <div className="productImgDiv">
             <div className="productImg">
-              <img src={capImg} alt="볼캡모자(상품이미지)" />
+              <img src={imagePath} alt="상품이미지" />
             </div>
             <div className="productMoreImgBtnDiv">
               <button className="productMoreImgBtnCurrent" disabled></button>
@@ -22,7 +23,7 @@ const ProductDetail = () => {
           <div className="productContentDiv">
             <div className="productContent">
               <div className="titleAndPrice">
-                <div className="productTitle">MLB LA 볼캡 모자</div>
+                <div className="productTitle">{title}</div>
                 <div className="priceWrapper">
                   <div className="productPrice">
                     32,000

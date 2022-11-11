@@ -36,7 +36,7 @@ const WritePost = () => {
   const onChangeImg = (e) => {
     const fileList = e.target.files; // 배열형태
     console.log(e.target.files[0]);
-    formdata.append("image", e.target.files[0]); // 서버에 전송할 타입
+    // formdata.append("image", e.target.files[0]); // 서버에 전송할 타입
     console.log(formdata);
     if (fileList && fileList[0]) {
       const url = URL.createObjectURL(fileList[0]);

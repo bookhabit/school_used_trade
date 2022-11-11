@@ -10,7 +10,6 @@ import axios from "axios";
 
 const ShowProduct = () => {
   const Params = useParams();
-
   const [post, setPost] = useState(null);
   const [postLoading, setPostLoading] = useState(true);
 
@@ -46,6 +45,32 @@ const ShowProduct = () => {
   if (!post) {
     return null;
   }
+  // PATCH /post/api/update?id=  수정 patch
+  const onUpdate = () => {
+    navigate("/EditorPost", {
+      state: {
+        id: post.id,
+        title: post.title,
+        body: post.body,
+        image: post.image,
+      },
+    });
+  };
+
+  // DELETE api/post/delete?id=  삭제 delete
+  const onRemove = () => {
+    alert("정말 삭제하시겠습니까?");
+    axios
+      .delete(`/api/post/remove?id=${Params.postID}`)
+      .then((res) => {
+        console.log(res.status); //200
+        alert("삭제되었습니다.");
+        navigate("/");
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
 
   return (
     <>
@@ -55,17 +80,17 @@ const ShowProduct = () => {
             {/* 카테고리 컨테이너*/}
             <ProductCategory />
             {/* 상품설명 */}
-            <ProductDetail
-              title={post.title}
-              body={post.body}
-              image={post.image.path}
-            />
+            <ProductDetail title={post.title} image={post.image.path} />
             {/* 연관상품  */}
             <RelatedProduct />
             {/* 공유하기 sns  */}
             <ShareSNS />
             {/* 상품,상점정보  */}
-            <ProductBottom />
+            <ProductBottom
+              body={post.body}
+              onRemove={onRemove}
+              onUpdate={onUpdate}
+            />
           </div>
         </div>
       </div>

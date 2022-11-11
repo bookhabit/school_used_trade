@@ -6,7 +6,8 @@ import RelatedProduct from "../component/showProduct/RelatedProduct";
 import ShareSNS from "../component/showProduct/ShareSNS";
 import ProductBottom from "../component/showProduct/ProductBottom";
 
-const EditorProduct = () => {
+const EditorProduct = ({ title, body, image, id }) => {
+  console.log(title, body, id, image);
   return (
     <>
       <div className="mainProductContainer">

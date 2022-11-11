@@ -452,6 +452,7 @@
     overflow-wrap: break-word;
     margin: 40px 0px;
     line-height: 1.5;
+    height: 300px;
 }
 .productDescContent p{
     width: 663px;
@@ -569,6 +570,7 @@
     width: 100%;
     -webkit-box-pack: justify;
     justify-content: space-between;
+    height: 180px;
 }
 .sellerBestProduct .sellerBestProductDetail{
     width: calc(50% - 3px);
@@ -580,7 +582,7 @@
 }
 .sellerBestProduct .sellerBestProductDetail a img{
     width: 120px;
-    height: 120px;
+    height: 180px;
 }
 .sellerBestProductPrice{
     position: absolute;
