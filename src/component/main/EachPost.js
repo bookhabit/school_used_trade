@@ -11,7 +11,7 @@ const EachPost = ({ title, created_at, postID, image }) => {
   let ms = Date.parse(created_at); // 작성한 포스트 날짜 밀리초
   let today = Date.now(); // 현재시간 밀리초
   const diff = today - ms;
-
+  const diffMinute = Math.floor(diff / 1000 / 60); // 분
   const diffTime = Math.floor(diff / 1000 / 60 / 60); // 시간
   const diffDay = Math.floor(diff / 1000 / 60 / 60 / 24); // 일
   const diffMonth = Math.floor(diff / 1000 / 60 / 60 / 24 / 30); // 월
@@ -30,7 +30,9 @@ const EachPost = ({ title, created_at, postID, image }) => {
             <div className="postPrice">"12,000원"</div>
             <div className="postDate">
               <span>
-                {diffTime < 24
+                {diffTime == 0
+                  ? `${diffMinute}분 전`
+                  : diffTime < 24
                   ? `${diffTime}시간 전`
                   : diffTime > 24
                   ? `${diffDay}일 전`
