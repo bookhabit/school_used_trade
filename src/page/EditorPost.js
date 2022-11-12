@@ -6,29 +6,32 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const EditorPost = () => {
   const { state } = useLocation();
-  console.log(state);
-  const [title, setTitle] = useState(state.title);
-  const [body, setBody] = useState(state.body);
-
-  const [images, setImg] = useState();
-
+  console.log(state); // navigate에서 넘긴 받아온 정보
   const navigate = useNavigate();
 
+  // input상태 관리
+  const [inputs, setInputs] = useState({
+    title: state.title,
+    body: state.body,
+  });
+  const { title, body } = inputs;
+
+  const onChange = useCallback((e) => {
+    const { name, value } = e.target;
+    console.log(name, value);
+    setInputs((inputs) => ({
+      ...inputs,
+      [name]: value,
+    }));
+  }, []);
+
+  // 이미지 상태관리
+  const [images, setImg] = useState();
   const onLoadImage = (e) => {
     const img = e.target.files; // 배열형태
     console.log(img);
     setImg(img);
   };
-
-  const onChange = useCallback((e) => {
-    const { name, value } = e.target;
-    if (name === "title") {
-      setTitle(value);
-    }
-    if (name === "body") {
-      setBody(value);
-    }
-  }, []);
 
   const onSubmit = (e) => {
     e.preventDefault();

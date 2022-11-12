@@ -7,26 +7,29 @@ import { useLocation, useNavigate } from "react-router-dom";
 const EditorForm = () => {
   const { state } = useLocation();
   console.log(state);
+  const navigate = useNavigate();
 
   // 상품등록 폼 ( 수정하기 전 기존 상태)
-  const [title, setTitle] = useState(state.title);
-  const [body, setBody] = useState(state.body);
+  // input상태 관리
+  const [inputs, setInputs] = useState({
+    title: state.title,
+    body: state.body,
+  });
+  const { title, body } = inputs;
+
+  const onChangeInput = useCallback((e) => {
+    const { name, value } = e.target;
+    console.log(name, value);
+    setInputs((inputs) => ({
+      ...inputs,
+      [name]: value,
+    }));
+  }, []);
+
   console.log(state.image.path);
   const imagePath = "http://" + state.image.path;
   const [img, setImg] = useState(null);
   console.log(img);
-
-  const navigate = useNavigate();
-
-  const onChangeInput = useCallback((e) => {
-    const { name, value } = e.target;
-    if (name === "title") {
-      setTitle(value);
-    }
-    if (name === "body") {
-      setBody(value);
-    }
-  }, []);
 
   // formdata 생성
   const formdata = new FormData();

@@ -7,18 +7,30 @@ import { useNavigate } from "react-router";
 const RegisterForm = () => {
   const navigate = useNavigate();
   // 상품등록 폼 상태관리
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
+  const [inputs, setInputs] = useState({
+    title: "",
+    body: "",
+  });
+  const { title, body } = inputs;
+
+  // const [title, setTitle] = useState("");
+  // const [body, setBody] = useState("");
   const [img, setImg] = useState(null);
 
   const onChangeInput = useCallback((e) => {
     const { name, value } = e.target;
-    if (name === "title") {
-      setTitle(value);
-    }
-    if (name === "body") {
-      setBody(value);
-    }
+    console.log(name, value);
+    setInputs((inputs) => ({
+      ...inputs,
+      [name]: value,
+    }));
+
+    // if (name === "title") {
+    //   setTitle(value);
+    // }
+    // if (name === "body") {
+    //   setBody(value);
+    // }
   }, []);
 
   // formdata 생성
