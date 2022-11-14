@@ -8,6 +8,7 @@ const PostList = () => {
   const [loading, setLoading] = useState(true);
 
   // GET 요청으로 데이터 가져옴 GET api/posts/list
+
   const fetchData = async () => {
     await axios
       .get("api/posts/list")
@@ -26,24 +27,10 @@ const PostList = () => {
     fetchData();
   }, []);
 
-  // 데이터 가져올 때 오류처리해줌
-  // 대기 중일 때 +  아직 posts 값이 설정되지 않았다면
-  if (loading && !posts) {
-    return (
-      <div className="loading">
-        <h2>로딩 중...</h2>
-      </div>
-    );
-  }
-  // //아직 posts 값이 설정되지 않았다면
-  // if (!posts) {
-  //   return null;
-  // }
-
   console.log("PostList posts : ", posts);
   // postItem으로 하나씩 map함수로 출력하기
 
-  return (
+  return !loading ? (
     <>
       <div className="postListWrapper">
         <div className="postList">
@@ -59,6 +46,10 @@ const PostList = () => {
         </div>
         <div className="pagination">1페이지</div>
       </div>
+    </>
+  ) : (
+    <>
+      <h2>서버와 연결되지 않았습니다.</h2>
     </>
   );
 };

@@ -19,7 +19,6 @@ const RegisterForm = () => {
 
   const onChangeInput = useCallback((e) => {
     const { name, value } = e.target;
-    console.log(name, value);
     setInputs((inputs) => ({
       ...inputs,
       [name]: value,
