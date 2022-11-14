@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import "../css/signUp.css";
+import "../css_UI/signUp.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
