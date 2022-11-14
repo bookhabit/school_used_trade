@@ -595,13 +595,17 @@
     align-items: center;
     -webkit-box-pack: center;
     justify-content: center;
+    align-items:center;
     color: rgb(255, 255, 255);
     font-size: 12px;
     background: rgba(0, 0, 0, 0.25);
 }
 .sellerBestProductPrice span{
+    padding-top: 3px;
+    color: rgb(255, 255, 255);
     font-weight: 600;
     margin-right: 3px;
+    align-items:center;
 }
 
 /* 상품더보기 버튼 */
@@ -620,8 +624,10 @@
     -webkit-box-align: center;
     align-items: center;
     color: rgb(102, 102, 102);
+    text-decoration: none;
 }
 .storeInfoBody .moreButtonWrapper a span{
+    padding-top: 4px;
     margin-right: 3px;
     color: rgb(247, 47, 51);
 }
