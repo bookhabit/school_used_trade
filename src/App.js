@@ -9,7 +9,7 @@ import SignUp from "./pages/SignUp";
 import Top from "./component/Top";
 import EditorProduct from "./pages/EditorProduct";
 import Missing from "./pages/Missing";
-
+import Kakao from "./pages/Kakao";
 const App = () => {
   return (
     <div>
@@ -22,6 +22,7 @@ const App = () => {
         <Route path="/detail/:postID" element={<ShowProduct />} />
         <Route path="/EditorProduct" element={<EditorProduct />} />
         <Route path="/login" element={<SignUp />} />
+        <Route path="/auth/kakao/callback" element={<Kakao />} />
         {/* 잘못된 경로일 때 오류처리 */}
         <Route path="*" element={<Missing />} />
       </Routes>

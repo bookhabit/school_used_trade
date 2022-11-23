@@ -8,6 +8,12 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import kakao_login from "../svg/login/kakao_login.png";
+
+const REST_API_KEY = "	2faef4e8b02f900649949e238d244252";
+const REDIRECT_URI = "http://localhost:3000/auth/kakao/callback";
+
+export const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -88,8 +94,23 @@ const SignUp = () => {
     }));
   };
 
+  // 카카오 로그인
+  // 인가 코드 백엔드에 요청하기
+  const getCode = () => {
+    window.location.href = KAKAO_AUTH_URL;
+  };
+
   return (
     <div className="wrap">
+      <div className="kakao_login">
+        <img
+          src={kakao_login}
+          alt="카카오로그인이미지"
+          href={KAKAO_AUTH_URL}
+          onClick={getCode}
+          style={{ cursor: "pointer" }}
+        />
+      </div>
       <div className="form-wrap">
         <div className="button-wrap">
           <div id="btn" ref={toggleBtn}>
