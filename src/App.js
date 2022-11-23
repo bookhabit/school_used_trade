@@ -10,6 +10,8 @@ import Top from "./component/Top";
 import EditorProduct from "./pages/EditorProduct";
 import Missing from "./pages/Missing";
 import Kakao from "./pages/Kakao";
+import MyStore from "./pages/MyStore";
+
 const App = () => {
   return (
     <div>
@@ -21,6 +23,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/detail/:postID" element={<ShowProduct />} />
         <Route path="/EditorProduct" element={<EditorProduct />} />
+        <Route path="/mystore" element={<MyStore />} />
         <Route path="/login" element={<SignUp />} />
         <Route path="/auth/kakao/callback" element={<Kakao />} />
         {/* 잘못된 경로일 때 오류처리 */}

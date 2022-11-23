@@ -5,6 +5,8 @@ import PostList from "../component/main/PostList";
 import Pagination from "../component/main/Pagination";
 
 const Main = () => {
+  // 로그인 상태관리 - 여기선 전역상태를 가져옴
+
   return (
     <>
       <div className="root">
