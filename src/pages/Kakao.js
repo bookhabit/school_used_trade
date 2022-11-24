@@ -1,13 +1,13 @@
 //Kakao.js
 import React from "react";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import qs from "qs";
 import { useRecoilState } from "recoil";
 import { LoginState } from "../states/LoginState";
 import { useNavigate } from "react-router";
 
-const Kakao = (props) => {
+const Kakao = () => {
   const navigate = useNavigate();
   // 로그인 상태관리
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
@@ -18,17 +18,19 @@ const Kakao = (props) => {
   console.log(KAKAO_CODE);
 
   // 인가코드와 함께 카카오 서버에 토큰 요청하기
-  const REST_API_KEY = "	2faef4e8b02f900649949e238d244252";
+  const REST_API_KEY = "2faef4e8b02f900649949e238d244252";
   const REDIRECT_URI = "http://localhost:3000/auth/kakao/callback";
   const AUTHORIZE_CODE = KAKAO_CODE;
   const KAKAO_TOKEN_URL = "https://kauth.kakao.com/oauth/token";
+
+  const [accessToken, setAccessToken] = useState();
 
   const getKakaoToken = async () => {
     return await axios({
       method: "POST",
       url: KAKAO_TOKEN_URL,
       headers: {
-        "Content-type": "application/x-www-form-urlencoded;charset=utf-8",
+        "Content-Type": "application/x-www-form-urlencoded;",
       },
       data: qs.stringify({
         grant_type: "authorization_code",
@@ -39,6 +41,7 @@ const Kakao = (props) => {
     })
       .then((response) => {
         console.log(response);
+        console.log(response.data.access_token);
       })
       .catch((e) => {
         console.log(e);
