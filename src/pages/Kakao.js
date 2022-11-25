@@ -40,8 +40,18 @@ const Kakao = () => {
       }),
     })
       .then((response) => {
-        console.log(response);
-        console.log(response.data.access_token);
+        console.log("토큰 가져오기:", response);
+        setAccessToken(response.data.access_token);
+        axios
+          .post("http://localhost:4000/api/callback/auth/kakao", {
+            headers: { "access-token": accessToken },
+          })
+          .then((response) => {
+            console.log("유저정보가져오기:", response);
+          })
+          .catch((e) => {
+            console.log(e);
+          });
       })
       .catch((e) => {
         console.log(e);
@@ -51,13 +61,15 @@ const Kakao = () => {
 
   // 백엔드 서버에 유저 정보 요청하기
   // useEffect(() => {
-  //     axios
-  //     .post("http://localhost:4000/api/callback/auth/kakao")
+  //   axios
+  //     .post("http://localhost:4000/api/callback/auth/kakao", {
+  //       headers: { accessToken },
+  //     })
   //     .then((response) => {
-  //         console.log(response);
+  //       console.log("유저정보가져오기:", response);
   //     })
   //     .catch((e) => {
-  //         console.log(e);
+  //       console.log(e);
   //     });
   // }, []);
 
