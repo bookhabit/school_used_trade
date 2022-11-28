@@ -23,8 +23,6 @@ const Kakao = () => {
   const AUTHORIZE_CODE = KAKAO_CODE;
   const KAKAO_TOKEN_URL = "https://kauth.kakao.com/oauth/token";
 
-  const [accessToken, setAccessToken] = useState();
-
   const getKakaoToken = async () => {
     return await axios({
       method: "POST",
@@ -40,52 +38,25 @@ const Kakao = () => {
       }),
     })
       .then((response) => {
-        console.log("토큰 가져오기:", response);
-        setAccessToken(response.data.access_token);
-        axios
-          .post("http://localhost:4000/api/callback/auth/kakao", {
-            headers: { "access-token": accessToken },
-          })
-          .then((response) => {
-            console.log("유저정보가져오기:", response);
-          })
-          .catch((e) => {
-            console.log(e);
-          });
+        console.log("토큰 가져오기:", response.data);
+        localStorage.setItem("access_token", response.data.access_token);
+        setIsLoggedIn(true);
+        navigate("/");
       })
       .catch((e) => {
         console.log(e);
       });
   };
-  setTimeout(getKakaoToken, 2000);
 
-  // 백엔드 서버에 유저 정보 요청하기
-  // useEffect(() => {
-  //   axios
-  //     .post("http://localhost:4000/api/callback/auth/kakao", {
-  //       headers: { accessToken },
-  //     })
-  //     .then((response) => {
-  //       console.log("유저정보가져오기:", response);
-  //     })
-  //     .catch((e) => {
-  //       console.log(e);
-  //     });
-  // }, []);
+  useEffect(() => {
+    getKakaoToken();
+  });
 
-  // 로그인 완료하면 navigate로 홈으로 이동시키고 setIsLoggedIn(true)  - 임시버튼으로 연습
-  const onLogin = () => {
-    setIsLoggedIn(true);
-    navigate("/");
-  };
-
-  // 로그아웃 하면 setIsLoggedIn(false)
+  // 로그아웃 하면 setIsLoggedIn(false) 카카오api호출
   return (
     <div>
       <div>
         <p>잠시만 기다려 주세요! 로그인 중입니다.</p>
-        {/* 일단 버튼으로 로그인상태 관리하기 */}
-        <button onClick={onLogin}>임시 로그인버튼</button>
       </div>
     </div>
   );

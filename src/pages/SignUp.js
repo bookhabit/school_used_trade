@@ -107,7 +107,6 @@ const SignUp = () => {
         <img
           src={kakao_login}
           alt="카카오로그인이미지"
-          href={KAKAO_AUTH_URL}
           onClick={getCode}
           style={{ cursor: "pointer" }}
         />

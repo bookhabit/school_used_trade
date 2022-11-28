@@ -26,7 +26,7 @@ const Top = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
   // 로그아웃 기능구현 - 카카오톡 api logout 요청
   const logoutHandler = () => {
-    localStorage.removeItem("토큰");
+    localStorage.removeItem("access_token");
     setIsLoggedIn(false);
     navigate("/");
   };
