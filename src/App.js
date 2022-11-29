@@ -25,7 +25,7 @@ const App = () => {
         <Route path="/EditorProduct" element={<EditorProduct />} />
         <Route path="/mystore" element={<MyStore />} />
         <Route path="/login" element={<SignUp />} />
-        <Route path="/auth/kakao/callback" element={<Kakao />} />
+        <Route path="/auth/callback/kakao" element={<Kakao />} />
         {/* 잘못된 경로일 때 오류처리 */}
         <Route path="*" element={<Missing />} />
       </Routes>
