@@ -3,11 +3,28 @@ import "../css_UI/index.css";
 import MainIntroduce from "../component/main/MainIntroduce";
 import PostList from "../component/main/PostList";
 import Pagination from "../component/main/Pagination";
-import axios from "axios";
-import { useEffect } from "react";
+import { useLocation } from "react-router";
+import { useRecoilState } from 'recoil';
+import { LoginState } from "../states/LoginState";
+import { useSetRecoilState } from "recoil";
 
 const Main = () => {
-  // 로그인 상태관리 - 여기선 전역상태를 가져옴
+  const setIsLoggedIn = useSetRecoilState(LoginState);
+  // 로그인되면 로그인상태로 만들기
+  const location = useLocation();
+  // console.log(location.state)
+  try{
+    const login = location.state.value;
+    if(login === 'login'){
+        setIsLoggedIn(true)
+    }else{
+      setIsLoggedIn(false)
+    }
+  }catch{
+    setIsLoggedIn(false)
+  }
+
+
   return (
     <>
       <div className="root">

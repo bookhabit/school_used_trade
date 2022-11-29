@@ -41,6 +41,13 @@ button{
     line-height: 1.4;
     margin-right: 25px;
 }
+.loginName{
+    font-size: 15px;
+    font-weight: 600;
+    color: rgb(102, 102, 102);
+    line-height: 1.4;
+    padding: 0px 15px;
+}
 
 .myStore{
     font-size: 13px;

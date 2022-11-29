@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from "react";
-import listImg1 from "../../svg/list/listImg1.jpg";
 import { useRef, useMemo } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
@@ -13,8 +12,6 @@ const RegisterForm = () => {
   });
   const { title, body } = inputs;
 
-  // const [title, setTitle] = useState("");
-  // const [body, setBody] = useState("");
   const [img, setImg] = useState(null);
 
   const onChangeInput = useCallback((e) => {
@@ -23,13 +20,6 @@ const RegisterForm = () => {
       ...inputs,
       [name]: value,
     }));
-
-    // if (name === "title") {
-    //   setTitle(value);
-    // }
-    // if (name === "body") {
-    //   setBody(value);
-    // }
   }, []);
 
   // formdata 생성
@@ -62,6 +52,7 @@ const RegisterForm = () => {
     formdata.append("title", title);
     formdata.append("body", body);
     formdata.append("image", img.file);
+    console.log(img.file)
 
     // formdata 출력하기
     let entries = formdata.entries();
@@ -125,9 +116,7 @@ const RegisterForm = () => {
                   </li>
                   <li className="registeredProduct">
                     {/* 배열형태와 반복문,조건문으로 처리하기 */}
-                    <img src={listImg1} alt="" />
                     {showImage}
-                    <button className="removeRegisteredProduct"></button>
                   </li>
                 </ul>
                 <div className="imgGuide">

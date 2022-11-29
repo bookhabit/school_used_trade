@@ -2,9 +2,6 @@
 import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import qs from "qs";
-import { useRecoilState } from "recoil";
-import { LoginState } from "../states/LoginState";
 import { useNavigate } from "react-router";
 
 const Kakao = () => {
@@ -15,7 +12,6 @@ const Kakao = () => {
   // URL에서 인가 코드 가져오기
   let code = new URL(window.location.href);
   const KAKAO_CODE = code.searchParams.get("code");
-  console.log(KAKAO_CODE);
 
   // 인가코드 백엔드에 넘기기
   
@@ -35,14 +31,13 @@ const Kakao = () => {
     // 로컬 스토리지에 token 저장
     localStorage.setItem('token',response.data.token)
     // 로컬스토리지에 User데이터 저장
-    localStorage.setItem('user',response.data.user)
-    localStorage.setItem('loginState',true)
-    console.log("res : ", response)
-    
+    localStorage.setItem('user',JSON.stringify(response.data.user))    
   }
   useEffect(()=>{
     getUserInfo();
-    navigate('/')
+    navigate('/',{
+      state:{value:'login'}
+    })
   })
 
   return (
