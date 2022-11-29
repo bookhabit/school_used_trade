@@ -25,6 +25,13 @@ const Top = () => {
   // 로그인 상태관리 - 여기선 전역상태를 가져옴
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
 
+  // 로그인되면 로그인상태로 만들기
+  const loginState = localStorage.getItem('loginState')
+
+  if(loginState===true){
+    setIsLoggedIn(true)
+  }
+
   // 로그아웃 기능구현 - 카카오톡 api logout 요청
   const logoutHandler = () => {
     localStorage.removeItem("token"); // 유저토큰 삭제

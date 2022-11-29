@@ -10,22 +10,18 @@ import { useNavigate } from "react-router";
 const Kakao = () => {
   const navigate = useNavigate();
   // 로그인 상태관리
-  const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
-
+  
+  
   // URL에서 인가 코드 가져오기
   let code = new URL(window.location.href);
   const KAKAO_CODE = code.searchParams.get("code");
   console.log(KAKAO_CODE);
 
   // 인가코드 백엔드에 넘기기
-  // const REST_API_KEY = "2faef4e8b02f900649949e238d244252";
-  // const REDIRECT_URI = "http://localhost:3000/auth/callback/kakao";
+  
   const AUTHORIZE_CODE = KAKAO_CODE;
 
   // 로그인 +  백엔드 서버에 유저 정보 요청하기
-  // const getUserInfo = () => {
-    
-  // };
   
   const getUserInfo = async ()=>{
     let response
@@ -35,20 +31,19 @@ const Kakao = () => {
     } catch(e) {
       console.log(e);
     };
-  
     console.log("유저정보가져오기:", response);
-    // setIsLoggedIn(true)
     // 로컬 스토리지에 token 저장
     localStorage.setItem('token',response.data.token)
-    navigate('/')
-    
+    // 로컬스토리지에 User데이터 저장
+    localStorage.setItem('user',response.data.user)
+    localStorage.setItem('loginState',true)
     console.log("res : ", response)
+    
   }
-
+  useEffect(()=>{
     getUserInfo();
-  
-  
-  
+    navigate('/')
+  })
 
   return (
     <div>
