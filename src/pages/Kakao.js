@@ -23,27 +23,32 @@ const Kakao = () => {
   const AUTHORIZE_CODE = KAKAO_CODE;
 
   // 로그인 +  백엔드 서버에 유저 정보 요청하기
-  const getUserInfo = () => {
-    axios
-      .post("http://localhost:4000/api/auth/callback/kakao",
-      {code:AUTHORIZE_CODE})
-      .then((response) => {
-        console.log("유저정보가져오기:", response);
-        // setIsLoggedIn(true)
-        // 로컬 스토리지에 token 저장
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  };
-  useEffect(() => {
+  // const getUserInfo = () => {
+    
+  // };
+  
+  const getUserInfo = async ()=>{
+    let response
+    try {
+      response = await axios.post("http://localhost:4000/api/auth/callback/kakao",
+        {code:AUTHORIZE_CODE})
+    } catch(e) {
+      console.log(e);
+    };
+  
+    console.log("유저정보가져오기:", response);
+    // setIsLoggedIn(true)
+    // 로컬 스토리지에 token 저장
+    localStorage.setItem('token',response.data.token)
+    navigate('/')
+    
+    console.log("res : ", response)
+  }
+
     getUserInfo();
-  }, []);
-
-
-  // 로그아웃 하면 setIsLoggedIn(false) 카카오api호출
-
-
+  
+  
+  
 
   return (
     <div>

@@ -24,10 +24,11 @@ const Top = () => {
   const navigate = useNavigate();
   // 로그인 상태관리 - 여기선 전역상태를 가져옴
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
+
   // 로그아웃 기능구현 - 카카오톡 api logout 요청
   const logoutHandler = () => {
-    localStorage.removeItem("access_token");
-    setIsLoggedIn(false);
+    localStorage.removeItem("token"); // 유저토큰 삭제
+    setIsLoggedIn(false); // 로그인상태 변경
     navigate("/");
   };
 
