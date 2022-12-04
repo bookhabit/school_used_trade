@@ -61,7 +61,9 @@ const ShowProduct = () => {
   const onRemove = () => {
     alert("정말 삭제하시겠습니까?");
     axios
-      .delete(`/api/post/remove?id=${Params.postID}`)
+      .delete(`/api/post/remove?id=${Params.postID}`,{headers:{
+        Authorization: "Bearer " + localStorage.getItem('token')
+      }})
       .then((res) => {
         console.log(res.status); //200
         alert("삭제되었습니다.");
@@ -87,6 +89,7 @@ const ShowProduct = () => {
             <ShareSNS />
             {/* 상품,상점정보  */}
             <ProductBottom
+              postUserId = {post.userid}
               body={post.body}
               onRemove={onRemove}
               onUpdate={onUpdate}

@@ -27,7 +27,7 @@ const EachPost = ({ title, created_at, postID, image,price }) => {
             <div className="postTitle">{title}</div>
           </div>
           <div className="postBottom">
-            <div className="postPrice">`${price} 원`</div>
+            <div className="postPrice">{price} 원</div>
             <div className="postDate">
               <span>
                 {diffTime == 0

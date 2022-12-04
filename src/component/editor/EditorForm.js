@@ -14,8 +14,9 @@ const EditorForm = () => {
   const [inputs, setInputs] = useState({
     title: state.title,
     body: state.body,
+    price:state.price
   });
-  const { title, body } = inputs;
+  const { title, body,price } = inputs;
 
   const onChangeInput = useCallback((e) => {
     const { name, value } = e.target;
@@ -60,6 +61,7 @@ const EditorForm = () => {
     // formdata에 데이터 넣기
     formdata.append("title", title);
     formdata.append("body", body);
+    formdata.append("price", price);
     // 이미지 변경을 안했으면 그대로 , 변경했으면 변경한 이미지파일
     if (img == null) {
       formdata.append("image", state.image.path);
@@ -76,6 +78,7 @@ const EditorForm = () => {
     // request의 header부분에 아래와 같이 타입을 설정해줍니다.
     const headers = {
       "Content-Type": "multipart/form-data",
+      Authorization: "Bearer " + localStorage.getItem('token')
     };
 
     // axios로 post호출하면서 데이터 전송하기   POST api/post/write
@@ -396,7 +399,9 @@ const EditorForm = () => {
                     type="text"
                     placeholder="숫자만 입력해주세요."
                     className="registerInputPrice"
-                    defaultValue=""
+                    name={price}
+                    defaultValue={price}
+                    onChange={onChangeInput}
                   />
                   원
                 </div>

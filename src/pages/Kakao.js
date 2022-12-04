@@ -25,12 +25,13 @@ const Kakao = () => {
     } catch(e) {
       console.log(e);
     };
-
+    
     console.log("유저정보가져오기:", response);
     // 로컬 스토리지에 token 저장
-    localStorage.setItem('token',response.data.token)
+    await localStorage.setItem('token',response.data.token)
     // 로컬스토리지에 User데이터 저장
-    localStorage.setItem('user',JSON.stringify(response.data.user))    
+    await localStorage.setItem('user',JSON.stringify(response.data.user))    
+   
   }
   // 카카오 로그인 수행 후 로그인상태변경과 메인화면 이동
   useEffect(()=>{

@@ -2,12 +2,13 @@ import React from "react";
 import "../css_UI/index.css";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-
 import { LoginState } from "../states/LoginState";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useRecoilState } from 'recoil';
+import axios from "axios";
+
 
 const TopContainer = styled.div`
   display: flex;
@@ -48,16 +49,25 @@ const Top = () => {
 
 
   // 로그아웃 기능구현 - 카카오톡 api logout 요청
-  const logoutHandler = () => {
+  const logoutHandler = async () => {
+  // 로그아웃 카카오api 구현
+  await axios({
+    method: "post",
+    url: "/api/auth/logout/kakao",
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem('token')
+    },
+  }).then((e)=>{
+    console.log(e)
+  }).catch((e)=>{
+    console.log(e)
+  })
     setIsLoggedIn(false); // 로그인상태 변경
     localStorage.removeItem("token"); // 유저토큰 삭제
     localStorage.removeItem("user"); // 유저토큰 삭제
-    // 로그아웃 카카오api 구현
     
     alert('로그아웃되었습니다.')
-    navigate('/',{
-      state:{value:'logout'}
-    })
+    navigate('/',)
   };
 
   // 로그인 안하면 alert메세지

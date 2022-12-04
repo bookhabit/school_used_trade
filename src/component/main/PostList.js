@@ -84,7 +84,7 @@ const PostList = () => {
               <div className="postTitle">식빵 태블릿 파우치 11인치</div>
             </div>
             <div className="postBottom">
-              <div className="postPrice">"12,000원"</div>
+              <div className="postPrice">12,000원</div>
               <div className="postDate">
                 <span>1시간 전</span>
               </div>
@@ -102,7 +102,7 @@ const PostList = () => {
               <div className="postTitle">아던샵 속눈썹펌 세트 (9회분)</div>
             </div>
             <div className="postBottom">
-              <div className="postPrice">"25,000원"</div>
+              <div className="postPrice">25,000원</div>
               <div className="postDate">
                 <span>3시간 전</span>
               </div>
@@ -120,7 +120,7 @@ const PostList = () => {
               <div className="postTitle">톰브라운 카드지갑</div>
             </div>
             <div className="postBottom">
-              <div className="postPrice">"90,000원"</div>
+              <div className="postPrice">90,000원</div>
               <div className="postDate">
                 <span>3시간 전</span>
               </div>
@@ -138,7 +138,7 @@ const PostList = () => {
               <div className="postTitle">스메그 오븐기,오븐렉,믹싱기</div>
             </div>
             <div className="postBottom">
-              <div className="postPrice">"1,100,000원"</div>
+              <div className="postPrice">1,100,000원</div>
               <div className="postDate">
                 <span>9시간 전</span>
               </div>
@@ -158,7 +158,7 @@ const PostList = () => {
               </div>
             </div>
             <div className="postBottom">
-              <div className="postPrice">"215,000원"</div>
+              <div className="postPrice">215,000원</div>
               <div className="postDate">
                 <span>12시간 전</span>
               </div>
@@ -176,7 +176,7 @@ const PostList = () => {
               <div className="postTitle">노스페이스 조끼패딩</div>
             </div>
             <div className="postBottom">
-              <div className="postPrice">"150,000원"</div>
+              <div className="postPrice">150,000원</div>
               <div className="postDate">
                 <span>12시간 전</span>
               </div>
@@ -194,7 +194,7 @@ const PostList = () => {
               <div className="postTitle">2020 맥북에어(인텔)</div>
             </div>
             <div className="postBottom">
-              <div className="postPrice">"600,000원"</div>
+              <div className="postPrice">600,000원</div>
               <div className="postDate">
                 <span>13시간 전</span>
               </div>
@@ -212,7 +212,7 @@ const PostList = () => {
               <div className="postTitle">cos 미니얼 워크에어 재킷</div>
             </div>
             <div className="postBottom">
-              <div className="postPrice">"120,000원"</div>
+              <div className="postPrice">120,000원</div>
               <div className="postDate">
                 <span>15시간 전</span>
               </div>
@@ -230,7 +230,7 @@ const PostList = () => {
               <div className="postTitle">카본 자전거</div>
             </div>
             <div className="postBottom">
-              <div className="postPrice">"200,000원"</div>
+              <div className="postPrice">200,000원</div>
               <div className="postDate">
                 <span>1일 전</span>
               </div>
@@ -248,7 +248,7 @@ const PostList = () => {
               <div className="postTitle">스투시 8볼 로우캡</div>
             </div>
             <div className="postBottom">
-              <div className="postPrice">"95,000원"</div>
+              <div className="postPrice">95,000원</div>
               <div className="postDate">
                 <span>2일 전</span>
               </div>

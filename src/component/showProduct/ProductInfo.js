@@ -1,15 +1,20 @@
 import React from "react";
 import { useState } from "react";
+import { useRecoilValue } from 'recoil';
 
 const ProductInfo = ({ postUserId,body, onRemove, onUpdate }) => {
 // 유저의 id를 가져오고 비교해서 id가 일치하면 화면에 보여주기
-const user = localStorage.getItem('user')
 const [isUserPost,setIsUserPost] = useState(false)
-console.log(user.id)
-console.log(postUserId)
-  // if (postUserId === JSON.parse(user.id)){
-  //   setIsUserPost(true)
-  // }
+const isLoggedIn = useRecoilValue
+// if(isLoggedIn){
+//   const user = localStorage.getItem('user')
+//   console.log(user.id)
+//   console.log(postUserId)
+//   // 수정하기삭제하기 UI 보여주기 (작성자만)
+//     if (postUserId === JSON.parse(user.id)){
+//       setIsUserPost(true)
+//     }
+// }
 
   return (
     <div className="productInfoContent">
@@ -30,6 +35,8 @@ console.log(postUserId)
               </div>
             </div>
             <div className="updateAndDelete">
+            <button onClick={onUpdate}>수정하기</button>
+            <button onClick={onRemove}>삭제하기</button>
               {/* {isUserPost
               ?<div><button onClick={onUpdate}>수정하기</button>
               <button onClick={onRemove}>삭제하기</button></div> :null} */}
