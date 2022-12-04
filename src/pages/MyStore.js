@@ -53,7 +53,7 @@ const ProfileImage = styled.div`
   z-index: 0;
   width: 100%;
   height: 100%;
-  background-image: url(blankProfile);
+  background-image: url(${blankProfile});
   background-color: rgb(181, 181, 181);
 `;
 
@@ -171,7 +171,7 @@ const MyStore = () => {
             </ProfileImg>
             <StoreIntro>
               <StoreInfoTop>
-                <StoreTitle>현진이의 상점</StoreTitle>
+                <StoreTitle>금쪽이의 상점</StoreTitle>
               </StoreInfoTop>
               <StoreInfoCenter>
                 <StoreInfoCenterContent>
