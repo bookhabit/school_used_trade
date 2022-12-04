@@ -9,22 +9,6 @@ import { LoginState } from "../states/LoginState";
 import { useSetRecoilState } from "recoil";
 
 const Main = () => {
-  const setIsLoggedIn = useSetRecoilState(LoginState);
-  // 로그인되면 로그인상태로 만들기
-  const location = useLocation();
-  // console.log(location.state)
-  try{
-    const login = location.state.value;
-    if(login === 'login'){
-        setIsLoggedIn(true)
-    }else{
-      setIsLoggedIn(false)
-    }
-  }catch{
-    setIsLoggedIn(false)
-  }
-
-
   return (
     <>
       <div className="root">
