@@ -1,8 +1,16 @@
 import React from "react";
+import { useState } from "react";
 
-const ProductInfo = ({ body, onRemove, onUpdate }) => {
-  console.log("info:", onRemove);
-  console.log("info:", onUpdate);
+const ProductInfo = ({ postUserId,body, onRemove, onUpdate }) => {
+// 유저의 id를 가져오고 비교해서 id가 일치하면 화면에 보여주기
+const user = localStorage.getItem('user')
+const [isUserPost,setIsUserPost] = useState(false)
+console.log(user.id)
+console.log(postUserId)
+  // if (postUserId === JSON.parse(user.id)){
+  //   setIsUserPost(true)
+  // }
+
   return (
     <div className="productInfoContent">
       <div className="productInfoWrapper">
@@ -22,8 +30,9 @@ const ProductInfo = ({ body, onRemove, onUpdate }) => {
               </div>
             </div>
             <div className="updateAndDelete">
-              <button onClick={onUpdate}>수정하기</button>
-              <button onClick={onRemove}>삭제하기</button>
+              {/* {isUserPost
+              ?<div><button onClick={onUpdate}>수정하기</button>
+              <button onClick={onRemove}>삭제하기</button></div> :null} */}
             </div>
           </div>
         </div>

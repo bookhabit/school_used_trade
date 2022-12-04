@@ -9,13 +9,14 @@ const RegisterForm = () => {
   const [inputs, setInputs] = useState({
     title: "",
     body: "",
+    price :""
   });
-  const { title, body } = inputs;
-
+  const { title, body,price } = inputs;
+  
   const [img, setImg] = useState(null);
 
   const onChangeInput = useCallback((e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target;    
     setInputs((inputs) => ({
       ...inputs,
       [name]: value,
@@ -30,7 +31,7 @@ const RegisterForm = () => {
     // 상품이미지 폼에 보여줄 이미지 미리보기 위해 url생성
     if (fileList && fileList[0]) {
       const url = URL.createObjectURL(fileList[0]);
-
+      
       setImg({
         file: fileList[0],
         thumbnail: url,
@@ -51,6 +52,7 @@ const RegisterForm = () => {
     // formdata에 데이터 넣기
     formdata.append("title", title);
     formdata.append("body", body);
+    formdata.append("price", price);
     formdata.append("image", img.file);
     console.log(img.file)
 
@@ -61,16 +63,19 @@ const RegisterForm = () => {
     }
 
     // request의 header부분에 아래와 같이 타입을 설정해줍니다.
-    const headers = {
-      "Content-Type": "multipart/form-data",
-    };
+    // const headers = {
+    //   "Content-Type": "multipart/form-data",
+    // };
 
     // axios로 post호출하면서 데이터 전송하기   POST api/post/write
     axios({
       method: "post",
       url: " http://localhost:4000/api/post/write",
       data: formdata,
-      headers,
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: "Bearer " + localStorage.getItem('token')
+      },
     })
       .then((response) => {
         console.log(response);
@@ -383,7 +388,9 @@ const RegisterForm = () => {
                     type="text"
                     placeholder="숫자만 입력해주세요."
                     className="registerInputPrice"
-                    defaultValue=""
+                    name="price"
+                    defaultValue={price}
+                    onChange={onChangeInput}
                   />
                   원
                 </div>

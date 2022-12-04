@@ -71,6 +71,7 @@ const PostList = () => {
           postID={post.id}
           image={post.image.path}
           created_at={post.created_at}
+          price={post.price}
         />
       ))}
       <div className="post" onClick={goDetail}>

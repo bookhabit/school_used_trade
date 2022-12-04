@@ -3,17 +3,27 @@ import sellLogoImg from "../../svg/header/sellLogo.png";
 import categoryImg from "../../svg/header/category.png";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
+import { LoginState } from "../../states/LoginState";
+import { useRecoilValue } from "recoil";
 
 const HeaderRight = () => {
   const categoryAbout = useRef();
+  const isLoggedIn = useRecoilValue(LoginState)
+
+  const alertFunc = ()=>{
+    alert('로그인을 하지 않으면 판매할 수 없습니다.')
+  }
 
   return (
     <div className="headerRight">
       <div className="sellContainer">
-        <Link to="/register">
+        {isLoggedIn ? <Link to="/register">
           <img src={sellLogoImg} alt="판매하기" />
           판매하기
-        </Link>
+        </Link>: <Link onClick={alertFunc}>
+          <img src={sellLogoImg} alt="판매하기" />
+          판매하기
+        </Link> }
       </div>
       <div
         className="categoryContainer"

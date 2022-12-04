@@ -2,10 +2,10 @@ import React from "react";
 import ProductInfo from "./ProductInfo";
 import StoreInfo from "./StoreInfo";
 
-const ProductBottom = ({ body, onUpdate, onRemove }) => {
+const ProductBottom = ({ postUserId,body, onUpdate, onRemove }) => {
   return (
     <div className="productBottom">
-      <ProductInfo body={body} onRemove={onRemove} onUpdate={onUpdate} />
+      <ProductInfo postUserId={postUserId} body={body} onRemove={onRemove} onUpdate={onUpdate} />
       <StoreInfo />
     </div>
   );

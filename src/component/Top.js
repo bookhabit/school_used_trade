@@ -38,8 +38,8 @@ const Top = () => {
   useEffect(()=>{
     if(isLoggedIn===true){
       const userState = JSON.parse(localStorage.getItem('user'))
-        console.log(userState.properties.nickname)
-        setUserName(userState.properties.nickname)
+        console.log(userState.nickname)
+        setUserName(userState.nickname)
     }else if (isLoggedIn===false){
       console.log('로그인 안한 상태')
     }

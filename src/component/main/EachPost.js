@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router";
 
-const EachPost = ({ title, created_at, postID, image }) => {
+const EachPost = ({ title, created_at, postID, image,price }) => {
   const imagePath = "http://" + image;
   const navigate = useNavigate();
   const goDetail = () => {
@@ -27,7 +27,7 @@ const EachPost = ({ title, created_at, postID, image }) => {
             <div className="postTitle">{title}</div>
           </div>
           <div className="postBottom">
-            <div className="postPrice">"12,000원"</div>
+            <div className="postPrice">`${price} 원`</div>
             <div className="postDate">
               <span>
                 {diffTime == 0
