@@ -6,33 +6,48 @@ import { LoginState } from "../states/login/LoginState";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useResetRecoilState } from 'recoil';
 import axios from "axios";
+import { useCallback } from "react";
 import { TopContainer } from "./styled/AppStyle";
 import { TopDiv } from "./styled/AppStyle";
 import { LoggedInTopDiv } from "./styled/AppStyle";
+import { useRecoilValue } from 'recoil';
+
 
 const Top = () => {
   const navigate = useNavigate();
-  // 로그인 상태관리 - 여기선 전역상태를 가져옴
-  const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
   const [userName,setUserName] = useState('')
+  // 로그인 상태관리 - 여기선 전역상태를 가져옴
+  const isLoggedIn = useRecoilValue(LoginState)
+  const defaultLoginState = useResetRecoilState(LoginState)
+  console.log(isLoggedIn)
 
+
+
+  const getUserName = async()=>{
+    const userState = localStorage.getItem('user')
+    // 스토리지에 user정보가 없으면 멈춤
+    if(!userState) return; 
+    // 정보를 잘 가져왔다면 유저네임 state변경
+    return JSON.parse(userState)
+    
+  }
+
+ 
   // 닉네임 가져오기 
   useEffect(()=>{
-    if(isLoggedIn===true){
-      const userState = JSON.parse(localStorage.getItem('user'))
-        console.log(userState)
-        setUserName(userState.nickname)
-    }else if (isLoggedIn===false){
-      console.log('로그인 안한 상태')
-    }
-
+      if(isLoggedIn){
+        getUserName()
+          .then((userState)=> {setUserName(userState.nickname)});
+      }    
+      
   },[isLoggedIn])
 
 
   // 로그아웃 기능구현 - 카카오톡 api logout 요청
   const logoutHandler = async () => {
+  
   // 로그아웃 카카오api 구현
   // await axios({
   //   method: "post",
@@ -45,7 +60,7 @@ const Top = () => {
   // }).catch((e)=>{
   //   console.log(e)
   // })
-    setIsLoggedIn(false); // 로그인상태 변경
+    defaultLoginState(); // 로그인상태 변경
     localStorage.removeItem("token"); // 유저토큰 삭제
     localStorage.removeItem("user"); // 유저토큰 삭제
     alert('로그아웃되었습니다.')

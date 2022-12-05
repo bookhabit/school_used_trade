@@ -18,7 +18,7 @@ const TopError = () => {
             내 상점
           </button>
             <LoggedInTopDiv>
-          <div className='loginName'>로그인을 하는 도중 오류가 발생했습니다</div> 
+          <div className='loginName'>로그인 처리 중 오류가 발생했습니다</div> 
             </LoggedInTopDiv>
             </TopDiv>
         </TopContainer>
