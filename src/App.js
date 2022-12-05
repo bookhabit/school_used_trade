@@ -13,14 +13,13 @@ import Kakao from "./pages/Kakao";
 import MyStore from "./pages/MyStore";
 import AuthProvider from "./component/Auth/AuthProvider";
 import { Suspense } from "react";
-import TopError from "./component/Error/TopError";
 import ErrorBoundary from "./component/Error/ErrorBoundary";
-
+import TopError from "./component/Error/TopError";
 
 const App = () => {
   return (
     <div>
-      <ErrorBoundary fallback={<div>로그인도중 오류</div>}>
+      <ErrorBoundary FallbackComponent={TopError}>
       <Suspense fallback={<div>로그인도중 오류</div>}>
       <Top />
       </Suspense>

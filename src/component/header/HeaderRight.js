@@ -3,7 +3,7 @@ import sellLogoImg from "../../svg/header/sellLogo.png";
 import categoryImg from "../../svg/header/category.png";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
-import { LoginState } from "../../states/LoginState";
+import { LoginState } from "../../states/login/LoginState";
 import { useRecoilValue } from "recoil";
 
 const HeaderRight = () => {

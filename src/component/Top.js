@@ -2,32 +2,15 @@ import React from "react";
 import "../css_UI/index.css";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { LoginState } from "../states/LoginState";
+import { LoginState } from "../states/login/LoginState";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useRecoilState } from 'recoil';
 import axios from "axios";
-
-
-const TopContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  border-bottom: 1px solid rgb(238, 238, 238);
-  height: 40px;
-  background: rgb(255, 255, 255);
-`;
-const TopDiv = styled.div`
-  width: 1024px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-const LoggedInTopDiv = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
+import { TopContainer } from "./styled/AppStyle";
+import { TopDiv } from "./styled/AppStyle";
+import { LoggedInTopDiv } from "./styled/AppStyle";
 
 const Top = () => {
   const navigate = useNavigate();

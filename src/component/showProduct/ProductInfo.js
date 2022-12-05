@@ -8,15 +8,15 @@ const ProductInfo = ({ postUserId,body, onRemove, onUpdate }) => {
   const isLoggedIn = useRecoilValue
 
 
-  // if(isLoggedIn){
-  //   const user = localStorage.getItem('user')
-  //   console.log(user.id)
-  //   console.log(postUserId)
-  //   // 수정하기삭제하기 UI 보여주기 (작성자만)
-  //     if (postUserId === JSON.parse(user.id)){
-  //       setIsUserPost(true)
-  //     }
-  // }
+  if(isLoggedIn){
+    const user = localStorage.getItem('user')
+    console.log(user.id)
+    console.log(postUserId)
+    // 수정하기삭제하기 UI 보여주기 (작성자만)
+      if (postUserId === JSON.parse(user.id)){
+        setIsUserPost(true)
+      }
+  }
 
   return (
     <div className="productInfoContent">
@@ -39,9 +39,9 @@ const ProductInfo = ({ postUserId,body, onRemove, onUpdate }) => {
             <div className="updateAndDelete">
             <button onClick={onUpdate}>수정하기</button>
             <button onClick={onRemove}>삭제하기</button>
-              {/* {isUserPost
+              {isUserPost
               ?<div><button onClick={onUpdate}>수정하기</button>
-              <button onClick={onRemove}>삭제하기</button></div> :null} */}
+              <button onClick={onRemove}>삭제하기</button></div> :null}
             </div>
           </div>
         </div>

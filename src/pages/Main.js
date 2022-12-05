@@ -5,7 +5,7 @@ import PostList from "../component/main/PostList";
 import Pagination from "../component/main/Pagination";
 import { useLocation } from "react-router";
 import { useRecoilState } from 'recoil';
-import { LoginState } from "../states/LoginState";
+import { LoginState } from "../states/login/LoginState";
 import { useSetRecoilState } from "recoil";
 
 const Main = () => {

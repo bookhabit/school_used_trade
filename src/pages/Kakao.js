@@ -3,7 +3,7 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { LoginState } from "../states/LoginState";
+import { LoginState } from "../states/login/LoginState";
 import { useRecoilState } from 'recoil';
 import { useSetRecoilState } from "recoil";
 

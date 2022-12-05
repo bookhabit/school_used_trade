@@ -1,6 +1,6 @@
 import { Outlet, Navigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
-import { LoginState } from "../../states/LoginState";
+import { LoginState } from "../../states/login/LoginState";
 
 function AuthProvider() {
   const auth = useRecoilValue(LoginState);
