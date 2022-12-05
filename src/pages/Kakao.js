@@ -7,8 +7,6 @@ import { LoginState } from "../states/login/LoginState";
 import { useRecoilState } from 'recoil';
 import { useSetRecoilState } from "recoil";
 
-
-  
 const Kakao = () => {
   const setIsLoggedIn = useSetRecoilState(LoginState)
   const navigate = useNavigate();

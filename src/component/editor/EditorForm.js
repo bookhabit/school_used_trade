@@ -27,10 +27,10 @@ const EditorForm = () => {
     }));
   }, []);
 
-  console.log(state.image.path);
+  // console.log(state.image.path);
   const imagePath = "http://" + state.image.path;
   const [img, setImg] = useState(null);
-  console.log(img);
+  // console.log(img);
 
   // formdata 생성
   const formdata = new FormData();

@@ -21,9 +21,6 @@ const Top = () => {
   // 로그인 상태관리 - 여기선 전역상태를 가져옴
   const isLoggedIn = useRecoilValue(LoginState)
   const defaultLoginState = useResetRecoilState(LoginState)
-  console.log(isLoggedIn)
-
-
 
   const getUserName = async()=>{
     const userState = localStorage.getItem('user')
@@ -31,17 +28,14 @@ const Top = () => {
     if(!userState) return; 
     // 정보를 잘 가져왔다면 유저네임 state변경
     return JSON.parse(userState)
-    
   }
 
- 
   // 닉네임 가져오기 
   useEffect(()=>{
       if(isLoggedIn){
         getUserName()
           .then((userState)=> {setUserName(userState.nickname)});
       }    
-      
   },[isLoggedIn])
 
 
