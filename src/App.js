@@ -16,7 +16,7 @@ import { Suspense } from "react";
 import ErrorBoundary from "./component/Error/ErrorBoundary";
 import TopError from "./component/Error/TopError";
 
-const App = () => {
+const App = () => {  
   return (
     <div>
       <ErrorBoundary FallbackComponent={TopError}>
