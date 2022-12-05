@@ -54,31 +54,6 @@ const SignUp = () => {
     }));
   };
 
-  // 회원가입 기능
-  // const register = (e) => {
-  //   // Request API.
-  //   e.preventDefault();
-  //   axios
-  //     .post("http://localhost:4000/api/callback/auth/kakao", {
-  //       email: email,
-  //       username: Username,
-  //       password: pwd,
-  //     })
-  //     .then((response) => {
-  //       // Handle success.
-  //       console.log("Well done!");
-  //       console.log("User email", response.data.email);
-  //       console.log("User username", response.data.username);
-  //       console.log("User pwd", response.data.pwd);
-  //       localStorage.setItem("token", response.data.jwt);
-  //       // navigate("/");
-  //     })
-  //     .catch((error) => {
-  //       // Handle error.
-  //       console.log("An error occurred:", error.response);
-  //     });
-  // };
-
   // 로그인
   const [loginInputs, setLoginInputs] = useState({
     loginName: "",

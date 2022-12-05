@@ -65,7 +65,6 @@ const Top = () => {
     setIsLoggedIn(false); // 로그인상태 변경
     localStorage.removeItem("token"); // 유저토큰 삭제
     localStorage.removeItem("user"); // 유저토큰 삭제
-    
     alert('로그아웃되었습니다.')
     navigate('/',)
   };

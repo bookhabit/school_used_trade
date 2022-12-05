@@ -2,6 +2,7 @@ import React from "react";
 import ProductInfo from "./ProductInfo";
 import StoreInfo from "./StoreInfo";
 
+
 const ProductBottom = ({ postUserId,body, onUpdate, onRemove }) => {
   return (
     <div className="productBottom">

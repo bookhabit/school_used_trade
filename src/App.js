@@ -12,11 +12,19 @@ import Missing from "./pages/Missing";
 import Kakao from "./pages/Kakao";
 import MyStore from "./pages/MyStore";
 import AuthProvider from "./component/Auth/AuthProvider";
+import { Suspense } from "react";
+import TopError from "./component/Error/TopError";
+import ErrorBoundary from "./component/Error/ErrorBoundary";
+
 
 const App = () => {
   return (
     <div>
+      <ErrorBoundary fallback={<div>로그인도중 오류</div>}>
+      <Suspense fallback={<div>로그인도중 오류</div>}>
       <Top />
+      </Suspense>
+      </ErrorBoundary>
       <Header />
       <Routes>
         {/* 메인 , 상품등록, 상품상세페이지,로그인 */}
@@ -30,7 +38,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/EditorProduct" element={<EditorProduct />} />
           <Route path="/mystore" element={<MyStore />} />
-          </Route>
+        </Route>
 
         {/* 잘못된 경로일 때 오류처리 */}
         <Route path="*" element={<Missing />} />
