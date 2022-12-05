@@ -52,6 +52,7 @@ const ShowProduct = () => {
         id: post.id,
         title: post.title,
         body: post.body,
+        price: post.price,
         image: post.image,
       },
     });

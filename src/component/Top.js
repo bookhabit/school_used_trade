@@ -39,7 +39,7 @@ const Top = () => {
   useEffect(()=>{
     if(isLoggedIn===true){
       const userState = JSON.parse(localStorage.getItem('user'))
-        console.log(userState.nickname)
+        console.log(userState)
         setUserName(userState.nickname)
     }else if (isLoggedIn===false){
       console.log('로그인 안한 상태')
@@ -51,17 +51,17 @@ const Top = () => {
   // 로그아웃 기능구현 - 카카오톡 api logout 요청
   const logoutHandler = async () => {
   // 로그아웃 카카오api 구현
-  await axios({
-    method: "post",
-    url: "/api/auth/logout/kakao",
-    headers: {
-      Authorization: "Bearer " + localStorage.getItem('token')
-    },
-  }).then((e)=>{
-    console.log(e)
-  }).catch((e)=>{
-    console.log(e)
-  })
+  // await axios({
+  //   method: "post",
+  //   url: "/api/auth/logout/kakao",
+  //   headers: {
+  //     Authorization: "Bearer " + localStorage.getItem('token')
+  //   },
+  // }).then((e)=>{
+  //   console.log(e)
+  // }).catch((e)=>{
+  //   console.log(e)
+  // })
     setIsLoggedIn(false); // 로그인상태 변경
     localStorage.removeItem("token"); // 유저토큰 삭제
     localStorage.removeItem("user"); // 유저토큰 삭제
@@ -70,10 +70,7 @@ const Top = () => {
     navigate('/',)
   };
 
-  // 로그인 안하면 alert메세지
-  const notMyStore = () => {
-    alert("로그인을 해야 합니다.");
-  };
+
   // 로그인하면 내 상점으로 이동
   const goMyStore = () => {
     navigate("/mystore");
@@ -82,16 +79,9 @@ const Top = () => {
   return (
     <TopContainer>
       <TopDiv>
-        {isLoggedIn ? (
           <button className="myStore" onClick={goMyStore}>
             내 상점
           </button>
-        ) : (
-          <button className="myStore" onClick={notMyStore}>
-            내 상점
-          </button>
-        )}
-
         {isLoggedIn ?  (
           <LoggedInTopDiv>
             <div className="loginName">{userName}님</div>
