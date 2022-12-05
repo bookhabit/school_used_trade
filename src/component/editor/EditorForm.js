@@ -62,6 +62,7 @@ const EditorForm = () => {
     formdata.append("title", title);
     formdata.append("body", body);
     formdata.append("price", price);
+    console.log(price)
     // 이미지 변경을 안했으면 그대로 , 변경했으면 변경한 이미지파일
     if (img == null) {
       formdata.append("image", state.image.path);
@@ -399,7 +400,7 @@ const EditorForm = () => {
                     type="text"
                     placeholder="숫자만 입력해주세요."
                     className="registerInputPrice"
-                    name={price}
+                    name="price"
                     defaultValue={price}
                     onChange={onChangeInput}
                   />
