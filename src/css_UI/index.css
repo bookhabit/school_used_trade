@@ -100,15 +100,17 @@ p{
 
 .headerLeft{
     margin-right: 100px;
-    width: 136px;
+    width: 160px;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
 }
 
 .headerLeft img{
-    margin-top:13px;
+    width: 160px;
+    height: 50px;
 }
+
 
 .headerCenter{
     border: 2px solid rgb(247, 47, 51);

@@ -7,7 +7,7 @@ const HeaderLeft = () => {
   return (
     <div className="headerLeft">
       <Link to="/">
-        <img src={mainLogo} alt="로고이미지" style={{width:'170px'}} />
+        <img src={mainLogo} alt="로고이미지" />
       </Link>
     </div>
   );
