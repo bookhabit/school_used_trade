@@ -131,9 +131,7 @@ const EditorForm = () => {
                   </li>
                   <li className="registeredProduct">
                     {/* 배열형태와 반복문,조건문으로 처리하기 */}
-                    <img src={imagePath} alt="" />
                     {showImage}
-                    <button className="removeRegisteredProduct"></button>
                   </li>
                 </ul>
                 <div className="imgGuide">
