@@ -3,7 +3,7 @@ import capImg from "../../svg/productDetail/capImg.jpg";
 import wishIconImg from "../../svg/productDetail/wishIcon.svg";
 import talkBtnImg from "../../svg/productDetail/talkBtn.png";
 
-const ProductDetail = ({ title, image }) => {
+const ProductDetail = ({ title, image,postPrice }) => {
   const imagePath = "http://" + image;
   return (
     <div className="showProductContainer">
@@ -26,7 +26,7 @@ const ProductDetail = ({ title, image }) => {
                 <div className="productTitle">{title}</div>
                 <div className="priceWrapper">
                   <div className="productPrice">
-                    32,000
+                    {postPrice}
                     <span>원</span>
                   </div>
                 </div>

@@ -83,7 +83,7 @@ const ShowProduct = () => {
             {/* 카테고리 컨테이너*/}
             <ProductCategory />
             {/* 상품설명 */}
-            <ProductDetail title={post.title} image={post.image.path} />
+            <ProductDetail title={post.title} image={post.image.path} postPrice={post.price} />
             {/* 연관상품  */}
             <RelatedProduct />
             {/* 공유하기 sns  */}
