@@ -106,6 +106,9 @@ p{
     align-items: center;
 }
 
+.headerLeft img{
+    margin-top:13px;
+}
 
 .headerCenter{
     border: 2px solid rgb(247, 47, 51);
