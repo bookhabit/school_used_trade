@@ -35,8 +35,8 @@ const EditorForm = () => {
     }));
   }, []);
 
-  const [price,setPrice] = useState(state.price) // 기존 가격
-  const [transmitPrice,setTransmitPrice] = useState('')
+  const [price,setPrice] = useState(state.price.toLocaleString()) // 기존 가격
+  const [transmitPrice,setTransmitPrice] = useState('') // 콤마빼고 전송할 가격데이터
   //  가격에 1,000 콤마 찍기
   const changePriceInput = (e) => {
     const value = e.target.value;
