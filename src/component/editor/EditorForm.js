@@ -45,10 +45,10 @@ const EditorForm = () => {
     setPrice(removedCommaValue.toLocaleString());
  };
 
-
-  // console.log(state.image.path);
-  const imagePath = "http://" + state.image.path;
-  const [img, setImg] = useState(null);
+  // const imagePath = "http://" + state.image.path;
+  // http://127.0.0.1:4000\\images\\1671708254186__í\x86 ì\x9Dµ.jpg 형식
+  
+  const [img, setImg] = useState({thumbnail:"http://" + state.image.path});
   // console.log(img);
 
   // formdata 생성
@@ -69,10 +69,11 @@ const EditorForm = () => {
   };
   // 업로드된 이미지 파일 미리보기
   const showImage = useMemo(() => {
+    console.log(img)
     if (!img && img == null) {
       return <h3>선택된 이미지 없음</h3>;
     }
-    return <img src={img.thumbnail} alt={img.type} />;
+    return <img src={img.thumbnail} alt='이미지' />;
   }, [img]);
 
   const onSubmit = (e) => {
