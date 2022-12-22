@@ -11,7 +11,7 @@ const RegisterForm = () => {
     body: "",
     price :""
   });
-  const { title, body,price } = inputs;
+  const { title, body } = inputs;
   
   const [img, setImg] = useState(null);
 
@@ -22,6 +22,18 @@ const RegisterForm = () => {
       [name]: value,
     }));
   }, []);
+
+  const [price,setPrice] = useState('')
+  const [transmitPrice,setTransmitPrice] = useState('')
+  //  가격에 1,000 콤마 찍기
+  const changePriceInput = (e) => {
+    const value = e.target.value;
+    const removedCommaValue = Number(value.replaceAll(",", ""));
+    setTransmitPrice(removedCommaValue)
+    setPrice(removedCommaValue.toLocaleString());
+    console.log(transmitPrice)
+ };
+
 
   // formdata 생성
   const formdata = new FormData();
@@ -52,7 +64,7 @@ const RegisterForm = () => {
     // formdata에 데이터 넣기
     formdata.append("title", title);
     formdata.append("body", body);
-    formdata.append("price", price);
+    formdata.append("price", transmitPrice);
     formdata.append("image", img.file);
     console.log(img.file)
 
@@ -62,12 +74,7 @@ const RegisterForm = () => {
       console.log("보낼 데이터 : ", pair[0] + ", " + pair[1]);
     }
 
-    // request의 header부분에 아래와 같이 타입을 설정해줍니다.
-    // const headers = {
-    //   "Content-Type": "multipart/form-data",
-    // };
-
-    // axios로 post호출하면서 데이터 전송하기   POST api/post/write
+    // axios로 post호출 데이터 전송 >  POST api/post/write
     axios({
       method: "post",
       url: " http://localhost:4000/api/post/write",
@@ -389,8 +396,8 @@ const RegisterForm = () => {
                     placeholder="숫자만 입력해주세요."
                     className="registerInputPrice"
                     name="price"
-                    defaultValue={price}
-                    onChange={onChangeInput}
+                    value={price}
+                    onChange={changePriceInput}
                   />
                   원
                 </div>

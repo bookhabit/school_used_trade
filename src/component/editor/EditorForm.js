@@ -14,9 +14,8 @@ const EditorForm = () => {
   const [inputs, setInputs] = useState({
     title: state.title,
     body: state.body,
-    price:state.price
   });
-  const { title, body,price } = inputs;
+  const { title, body } = inputs;
 
   const onChangeInput = useCallback((e) => {
     const { name, value } = e.target;
@@ -26,6 +25,17 @@ const EditorForm = () => {
       [name]: value,
     }));
   }, []);
+
+  const [price,setPrice] = useState(state.price) // 기존 가격
+  const [transmitPrice,setTransmitPrice] = useState('')
+  //  가격에 1,000 콤마 찍기
+  const changePriceInput = (e) => {
+    const value = e.target.value;
+    const removedCommaValue = Number(value.replaceAll(",", ""));
+    setTransmitPrice(removedCommaValue)
+    setPrice(removedCommaValue.toLocaleString());
+ };
+
 
   // console.log(state.image.path);
   const imagePath = "http://" + state.image.path;
@@ -61,7 +71,7 @@ const EditorForm = () => {
     // formdata에 데이터 넣기
     formdata.append("title", title);
     formdata.append("body", body);
-    formdata.append("price", price);
+    formdata.append("price", transmitPrice);
     console.log(price)
     // 이미지 변경을 안했으면 그대로 , 변경했으면 변경한 이미지파일
     if (img == null) {
@@ -399,8 +409,8 @@ const EditorForm = () => {
                     placeholder="숫자만 입력해주세요."
                     className="registerInputPrice"
                     name="price"
-                    defaultValue={price}
-                    onChange={onChangeInput}
+                    value={price}
+                    onChange={changePriceInput}
                   />
                   원
                 </div>
