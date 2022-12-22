@@ -3,8 +3,17 @@ import listImg1 from "../../svg/list/listImg1.jpg";
 import { useRef, useMemo } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const EditorForm = () => {
+  // 페이지 들어오면 맨 위로 올리기
+  useEffect(()=>{
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+  })
+  },[])
+
   const { state } = useLocation();
   console.log(state);
   const navigate = useNavigate();
