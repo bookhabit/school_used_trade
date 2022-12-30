@@ -14,7 +14,7 @@ import kakao_login from "../svg/login/kakao_login.png";
 const REST_API_KEY = "	2faef4e8b02f900649949e238d244252";
 const REDIRECT_URI = "http://localhost:3000/auth/callback/kakao";
 
-export const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+export const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code&scope=account_email`;
 
 const SignUp = () => {
   const navigate = useNavigate();
